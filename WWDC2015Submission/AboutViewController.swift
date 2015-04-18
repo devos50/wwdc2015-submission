@@ -7,53 +7,41 @@
 //
 
 import UIKit
+import MapKit
 
-class AboutViewController: UIViewController
+class AboutViewController: PageViewController
 {
-    @IBOutlet weak var menuButton: MenuButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    private var menuView: MenuView?
+    @IBOutlet weak var appsButton: UIButton!
+    @IBOutlet weak var locationMapView: MKMapView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        // start listening to animation finished notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuAnimationFinished:", name: "com.codeup.WWDC2015Submission.MenuButtonAnimationFinished", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuCloseAnimationFinished:", name: "com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
-        
-        // add the menu view - first find out the size of our transparent menu view with the Pythagoream theorem
-        let screenRect = UIScreen.mainScreen().bounds
-        let screenWidth = screenRect.size.width
-        let screenHeight = screenRect.size.height
-        let hypothenusa = sqrt((screenWidth / 2) * (screenWidth / 2) + (screenHeight / 2) * (screenHeight / 2))
-        
-        menuView = MenuView(frame: CGRectMake(screenWidth / 2 - hypothenusa, screenHeight / 2 - hypothenusa, hypothenusa * 2, hypothenusa * 2))
-        self.view.addSubview(menuView!)
-        
         photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
         photoImageView.layer.masksToBounds = true
+        
+        appsButton.layer.cornerRadius = appsButton.frame.size.width / 2
+        appsButton.layer.masksToBounds = true
+        
+        initializeMapView()
     }
     
-    func menuAnimationFinished(notification: NSNotification)
+    func initializeMapView()
     {
-        menuButton.hidden = true
-        menuView?.hidden = false
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
-            menuView?.transform = CGAffineTransformMakeScale(1, 1)
-        }) { (b: Bool) -> Void in
-                menuView?.fadePageButtons()
-        }
+        let myLocation = CLLocationCoordinate2DMake(51.549232, 4.073744)
+        let dropPin = MKPointAnnotation()
+        dropPin.coordinate = myLocation
+        dropPin.title = "My Location"
+        locationMapView.addAnnotation(dropPin)
+        
+        let coordinateRegion = MKCoordinateRegionMake(myLocation, MKCoordinateSpanMake(0.2, 0.2))
+        locationMapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func menuCloseAnimationFinished(notification: NSNotification)
+    @IBAction func appsButtonPressed(button: UIButton)
     {
-        menuButton.hidden = false
-        menuButton.restoreToOriginalPosition()
-    }
-    
-    @IBAction func menuButtonPressed(sender: UIButton)
-    {
-        menuButton.startButtonAnimation()
+        self.performSegueWithIdentifier("AppsSegue", sender: self)
     }
 }

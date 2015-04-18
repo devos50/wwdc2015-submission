@@ -13,14 +13,14 @@ class MenuButton: UIButton
 {
     var originalCenter: CGPoint?
     
+    override init(frame: CGRect)
+    {
+        super.init(frame: frame)
+    }
+    
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
-        
-        self.layer.cornerRadius = self.frame.size.width / 2
-        self.layer.masksToBounds = true
-        
-        originalCenter = self.center
     }
     
     func startButtonAnimation()

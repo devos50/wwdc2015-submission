@@ -47,8 +47,8 @@ class MenuView: UIView
         createCloseButton(radius)
         createPageButton(.Top, backgroundColor: UIColor(rgba: "#6EB339"), backgroundImage: UIImage(named: "profileicon")!)
         createPageButton(.Right, backgroundColor: UIColor(rgba: "#43A2D1"), backgroundImage: UIImage(named: "apppageicon")!)
-        createPageButton(.Bottom, backgroundColor: UIColor(rgba: "#CA2CAB"), backgroundImage: UIImage(named: "snowboardicon")!)
-        createPageButton(.Left, backgroundColor: UIColor(rgba: "#DE8F35"), backgroundImage: UIImage(named: "companyicon")!)
+        createPageButton(.Bottom, backgroundColor: UIColor(rgba: "#DE8F35"), backgroundImage: UIImage(named: "companyicon")!)
+        createPageButton(.Left, backgroundColor: UIColor(rgba: "#CA2CAB"), backgroundImage: UIImage(named: "snowboardicon")!)
         
         self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }

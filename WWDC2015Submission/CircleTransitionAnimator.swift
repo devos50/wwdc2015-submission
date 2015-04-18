@@ -15,7 +15,7 @@ class CircleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval
     {
-        return 0.7
+        return 0.6
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning)
@@ -23,16 +23,31 @@ class CircleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         self.transitionContext = transitionContext
         
         var containerView = transitionContext.containerView()
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! StartViewController
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)as! AboutViewController
-        var button = fromViewController.startButton
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController!
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)as UIViewController!
+        
+        var buttonFrame = CGRectZero
+        if fromViewController is StartViewController
+        {
+            buttonFrame = (fromViewController as! StartViewController).startButton!.frame
+        }
+        else if fromViewController is AboutViewController
+        {
+            buttonFrame = (fromViewController as! AboutViewController).appsButton!.frame
+        }
         
         containerView.addSubview(toViewController.view)
         
-        var circleMaskPathInitial = UIBezierPath(ovalInRect: button.frame)
-        var extremePoint = CGPoint(x: button.center.x - 0, y: button.center.y - CGRectGetHeight(toViewController.view.bounds))
+        var circleMaskPathInitial = UIBezierPath(ovalInRect: buttonFrame)
+        var extremePoint = CGPoint(x: CGRectGetMidX(buttonFrame) - 0, y: CGRectGetMidY(buttonFrame) - CGRectGetHeight(toViewController.view.bounds))
         var radius = sqrt((extremePoint.x*extremePoint.x) + (extremePoint.y*extremePoint.y))
-        var circleMaskPathFinal = UIBezierPath(ovalInRect: CGRectInset(button.frame, -radius, -radius))
+        
+        if fromViewController is AboutViewController
+        {
+            radius = sqrt(buttonFrame.origin.x * buttonFrame.origin.x + buttonFrame.origin.y * buttonFrame.origin.y) + buttonFrame.width
+        }
+        
+        var circleMaskPathFinal = UIBezierPath(ovalInRect: CGRectInset(buttonFrame, -radius, -radius))
         
         var maskLayer = CAShapeLayer()
         maskLayer.path = circleMaskPathFinal.CGPath

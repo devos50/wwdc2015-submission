@@ -11,6 +11,8 @@
 		1012C1E51AE2A50100D99188 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1E41AE2A50100D99188 /* UIColorExtension.swift */; };
 		1012C1E71AE2B1E700D99188 /* MenuSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1E61AE2B1E700D99188 /* MenuSubView.swift */; };
 		1012C1E91AE2C10400D99188 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1012C1E81AE2C10400D99188 /* MapKit.framework */; };
+		1012C1EB1AE2F40F00D99188 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1EA1AE2F40F00D99188 /* PageViewController.swift */; };
+		1012C1ED1AE2F84E00D99188 /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1EC1AE2F84E00D99188 /* AppsViewController.swift */; };
 		10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEB0C01AE290060046B960 /* MenuButton.swift */; };
 		9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F46C3AF1AE25E8100179FBE /* AppDelegate.swift */; };
 		9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F46C3B81AE25E8100179FBE /* LaunchScreen.xib */; };
@@ -40,6 +42,8 @@
 		1012C1E41AE2A50100D99188 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		1012C1E61AE2B1E700D99188 /* MenuSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSubView.swift; sourceTree = "<group>"; };
 		1012C1E81AE2C10400D99188 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1012C1EA1AE2F40F00D99188 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		1012C1EC1AE2F84E00D99188 /* AppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
 		10EEB0C01AE290060046B960 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		9F46C3AA1AE25E8100179FBE /* WWDC2015Submission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015Submission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F46C3AE1AE25E8100179FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				9F46C3DF1AE2784100179FBE /* NavigationControllerDelegate.swift */,
 				9F46C3E11AE2793B00179FBE /* CircleTransitionAnimator.swift */,
 				9F46C3E31AE27A4000179FBE /* AboutViewController.swift */,
+				1012C1EA1AE2F40F00D99188 /* PageViewController.swift */,
+				1012C1EC1AE2F84E00D99188 /* AppsViewController.swift */,
 			);
 			path = WWDC2015Submission;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				TargetAttributes = {
 					9F46C3A91AE25E8100179FBE = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 5T9Z3WMJ28;
 					};
 					9F46C3BE1AE25E8100179FBE = {
 						CreatedOnToolsVersion = 6.2;
@@ -262,6 +269,8 @@
 				9F46C3E01AE2784100179FBE /* NavigationControllerDelegate.swift in Sources */,
 				9F46C3DA1AE2663000179FBE /* DottedLineView.swift in Sources */,
 				9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */,
+				1012C1EB1AE2F40F00D99188 /* PageViewController.swift in Sources */,
+				1012C1ED1AE2F84E00D99188 /* AppsViewController.swift in Sources */,
 				1012C1E71AE2B1E700D99188 /* MenuSubView.swift in Sources */,
 				9F46C3E41AE27A4000179FBE /* AboutViewController.swift in Sources */,
 				1012C1E21AE29EAC00D99188 /* MenuView.swift in Sources */,
@@ -384,7 +393,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WWDC2015Submission/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -394,7 +405,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WWDC2015Submission/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
