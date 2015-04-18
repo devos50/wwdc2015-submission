@@ -11,12 +11,16 @@ import UIKit
 
 class MenuButton: UIButton
 {
+    var originalCenter: CGPoint?
+    
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.masksToBounds = true
+        
+        originalCenter = self.center
     }
     
     func startButtonAnimation()
@@ -28,6 +32,18 @@ class MenuButton: UIButton
             self.center = CGPointMake(screenRect.width / 2, screenRect.height / 2)
             }) { (b: Bool) -> Void in
                 NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.MenuButtonAnimationFinished", object: nil)
+        }
+    }
+    
+    func restoreToOriginalPosition()
+    {
+        // animate the button to its original position
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.transform = CGAffineTransformMakeScale(1, 1)
+            let screenRect = UIScreen.mainScreen().bounds
+            self.center = self.originalCenter!
+            }) { (b: Bool) -> Void in
+                // NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.MenuButtonAnimationFinished", object: nil)
         }
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class AboutViewController: UIViewController
 {
     @IBOutlet weak var menuButton: MenuButton!
+    @IBOutlet weak var photoImageView: UIImageView!
     private var menuView: MenuView?
     
     override func viewDidLoad()
@@ -19,6 +20,7 @@ class AboutViewController: UIViewController
         
         // start listening to animation finished notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuAnimationFinished:", name: "com.codeup.WWDC2015Submission.MenuButtonAnimationFinished", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuCloseAnimationFinished:", name: "com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
         
         // add the menu view - first find out the size of our transparent menu view with the Pythagoream theorem
         let screenRect = UIScreen.mainScreen().bounds
@@ -28,6 +30,9 @@ class AboutViewController: UIViewController
         
         menuView = MenuView(frame: CGRectMake(screenWidth / 2 - hypothenusa, screenHeight / 2 - hypothenusa, hypothenusa * 2, hypothenusa * 2))
         self.view.addSubview(menuView!)
+        
+        photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
+        photoImageView.layer.masksToBounds = true
     }
     
     func menuAnimationFinished(notification: NSNotification)
@@ -39,6 +44,12 @@ class AboutViewController: UIViewController
         }) { (b: Bool) -> Void in
                 menuView?.fadePageButtons()
         }
+    }
+    
+    func menuCloseAnimationFinished(notification: NSNotification)
+    {
+        menuButton.hidden = false
+        menuButton.restoreToOriginalPosition()
     }
     
     @IBAction func menuButtonPressed(sender: UIButton)

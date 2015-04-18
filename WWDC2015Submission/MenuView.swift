@@ -63,6 +63,7 @@ class MenuView: UIView
         closeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         closeButton.layer.cornerRadius = 15
         closeButton.layer.masksToBounds = true
+        closeButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         
         self.addSubview(closeButton)
     }
@@ -85,6 +86,22 @@ class MenuView: UIView
         menuSubView?.addPageButton(pageButton)
         
         menuSubView?.addSubview(pageButton)
+    }
+    
+    func closeButtonPressed(button: UIButton)
+    {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.transform = CGAffineTransformMakeScale(0.01, 0.01)
+            }) { (b: Bool) -> Void in
+                self.hidden = true
+                
+                // we should set the alpha of the buttons in the subview to 0.0 again
+                self.menuSubView?.hideAllPageButtons()
+                self.menuSubView?.shouldDisplayEdges = false
+                self.menuSubView?.setNeedsDisplay()
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
+        }
     }
     
     func fadePageButtons()

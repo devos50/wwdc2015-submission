@@ -10,6 +10,7 @@
 		1012C1E21AE29EAC00D99188 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1E11AE29EAC00D99188 /* MenuView.swift */; };
 		1012C1E51AE2A50100D99188 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1E41AE2A50100D99188 /* UIColorExtension.swift */; };
 		1012C1E71AE2B1E700D99188 /* MenuSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1E61AE2B1E700D99188 /* MenuSubView.swift */; };
+		1012C1E91AE2C10400D99188 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1012C1E81AE2C10400D99188 /* MapKit.framework */; };
 		10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEB0C01AE290060046B960 /* MenuButton.swift */; };
 		9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F46C3AF1AE25E8100179FBE /* AppDelegate.swift */; };
 		9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F46C3B81AE25E8100179FBE /* LaunchScreen.xib */; };
@@ -38,6 +39,7 @@
 		1012C1E11AE29EAC00D99188 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		1012C1E41AE2A50100D99188 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		1012C1E61AE2B1E700D99188 /* MenuSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSubView.swift; sourceTree = "<group>"; };
+		1012C1E81AE2C10400D99188 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		10EEB0C01AE290060046B960 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		9F46C3AA1AE25E8100179FBE /* WWDC2015Submission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015Submission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F46C3AE1AE25E8100179FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1012C1E91AE2C10400D99188 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +88,7 @@
 		9F46C3A11AE25E8100179FBE = {
 			isa = PBXGroup;
 			children = (
+				1012C1E81AE2C10400D99188 /* MapKit.framework */,
 				9F46C3AC1AE25E8100179FBE /* WWDC2015Submission */,
 				9F46C3C21AE25E8100179FBE /* WWDC2015SubmissionTests */,
 				9F46C3AB1AE25E8100179FBE /* Products */,

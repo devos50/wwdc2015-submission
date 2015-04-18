@@ -18,11 +18,12 @@ class MenuSubView: UIView
     {
         super.drawRect(rect)
         
+        let context = UIGraphicsGetCurrentContext()
+        
         if pageButtons.count == 0 || !shouldDisplayEdges { return }
         
         let pageButtonSize = pageButtons[0].frame.size.width
         
-        let context = UIGraphicsGetCurrentContext()
         CGContextSetGrayStrokeColor(context, 0.8, 1.0)
         CGContextSetLineWidth(context, 1.0)
         
@@ -39,6 +40,14 @@ class MenuSubView: UIView
     func addPageButton(pageButton: UIButton)
     {
         self.pageButtons.append(pageButton)
+    }
+    
+    func hideAllPageButtons()
+    {
+        for index in 0...pageButtons.count - 1
+        {
+            pageButtons[index].alpha = 0.0
+        }
     }
     
     func fadePageButtons()
