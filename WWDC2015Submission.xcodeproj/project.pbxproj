@@ -16,6 +16,10 @@
 		10235A431AE3D28100392964 /* AppsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A421AE3D28100392964 /* AppsGraphView.swift */; };
 		10235A451AE3EE2300392964 /* AppDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A441AE3EE2300392964 /* AppDescriptionView.swift */; };
 		10235A471AE3EEA900392964 /* AppDescriptionCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */; };
+		10235A4A1AE40A3E00392964 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A491AE40A3E00392964 /* AppInfo.swift */; };
+		10235A4C1AE40BA200392964 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A4B1AE40BA200392964 /* CloseButton.swift */; };
+		10235A4E1AE4255900392964 /* RotatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A4D1AE4255900392964 /* RotatingButton.swift */; };
+		10235A501AE42D0900392964 /* SpecialitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A4F1AE42D0900392964 /* SpecialitiesViewController.swift */; };
 		10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEB0C01AE290060046B960 /* MenuButton.swift */; };
 		9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F46C3AF1AE25E8100179FBE /* AppDelegate.swift */; };
 		9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F46C3B81AE25E8100179FBE /* LaunchScreen.xib */; };
@@ -50,6 +54,10 @@
 		10235A421AE3D28100392964 /* AppsGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsGraphView.swift; sourceTree = "<group>"; };
 		10235A441AE3EE2300392964 /* AppDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDescriptionView.swift; sourceTree = "<group>"; };
 		10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDescriptionCircleView.swift; sourceTree = "<group>"; };
+		10235A491AE40A3E00392964 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		10235A4B1AE40BA200392964 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		10235A4D1AE4255900392964 /* RotatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingButton.swift; sourceTree = "<group>"; };
+		10235A4F1AE42D0900392964 /* SpecialitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialitiesViewController.swift; sourceTree = "<group>"; };
 		10EEB0C01AE290060046B960 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		9F46C3AA1AE25E8100179FBE /* WWDC2015Submission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015Submission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F46C3AE1AE25E8100179FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +103,14 @@
 			name = External;
 			sourceTree = "<group>";
 		};
+		10235A481AE40A3200392964 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10235A491AE40A3E00392964 /* AppInfo.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		9F46C3A11AE25E8100179FBE = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +133,7 @@
 		9F46C3AC1AE25E8100179FBE /* WWDC2015Submission */ = {
 			isa = PBXGroup;
 			children = (
+				10235A481AE40A3200392964 /* Model */,
 				1012C1E31AE2A4D500D99188 /* External */,
 				9F46C3DB1AE2665F00179FBE /* Main.storyboard */,
 				9F46C3D81AE2662500179FBE /* Custom views */,
@@ -130,6 +147,7 @@
 				9F46C3E31AE27A4000179FBE /* AboutViewController.swift */,
 				1012C1EA1AE2F40F00D99188 /* PageViewController.swift */,
 				1012C1EC1AE2F84E00D99188 /* AppsViewController.swift */,
+				10235A4F1AE42D0900392964 /* SpecialitiesViewController.swift */,
 			);
 			path = WWDC2015Submission;
 			sourceTree = "<group>";
@@ -170,6 +188,8 @@
 				10235A421AE3D28100392964 /* AppsGraphView.swift */,
 				10235A441AE3EE2300392964 /* AppDescriptionView.swift */,
 				10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */,
+				10235A4B1AE40BA200392964 /* CloseButton.swift */,
+				10235A4D1AE4255900392964 /* RotatingButton.swift */,
 			);
 			name = "Custom views";
 			sourceTree = "<group>";
@@ -281,13 +301,17 @@
 				10235A451AE3EE2300392964 /* AppDescriptionView.swift in Sources */,
 				1012C1EB1AE2F40F00D99188 /* PageViewController.swift in Sources */,
 				1012C1ED1AE2F84E00D99188 /* AppsViewController.swift in Sources */,
+				10235A501AE42D0900392964 /* SpecialitiesViewController.swift in Sources */,
 				10235A431AE3D28100392964 /* AppsGraphView.swift in Sources */,
 				1012C1E71AE2B1E700D99188 /* MenuSubView.swift in Sources */,
 				9F46C3E41AE27A4000179FBE /* AboutViewController.swift in Sources */,
+				10235A4E1AE4255900392964 /* RotatingButton.swift in Sources */,
 				1012C1E21AE29EAC00D99188 /* MenuView.swift in Sources */,
 				10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */,
 				10235A471AE3EEA900392964 /* AppDescriptionCircleView.swift in Sources */,
+				10235A4C1AE40BA200392964 /* CloseButton.swift in Sources */,
 				9F46C3DE1AE26B6400179FBE /* StartButton.swift in Sources */,
+				10235A4A1AE40A3E00392964 /* AppInfo.swift in Sources */,
 				1012C1E51AE2A50100D99188 /* UIColorExtension.swift in Sources */,
 				9F46C3D21AE25EDB00179FBE /* StartViewController.swift in Sources */,
 				9F46C3E21AE2793B00179FBE /* CircleTransitionAnimator.swift in Sources */,

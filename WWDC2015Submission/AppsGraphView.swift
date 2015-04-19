@@ -22,6 +22,7 @@ class AppsGraphView: UIView
 {
     let newlinqButtonSize: CGFloat = 50
     var nodes = [UIButton]()
+    var originalNodesCenters = [CGPoint]()
     var shouldDisplayEdges = false
     
     override func drawRect(rect: CGRect)
@@ -112,7 +113,67 @@ class AppsGraphView: UIView
         
         nodeButton.alpha = 0.0
         nodes.append(nodeButton)
+        originalNodesCenters.append(center)
         
         self.addSubview(nodeButton)
+    }
+    
+    func startMovingToCenter()
+    {
+        UIView.animateWithDuration(0.4, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            self.shouldDisplayEdges = false
+            self.setNeedsDisplay()
+            for index in 1...self.nodes.count - 1
+            {
+                self.nodes[index].center = self.nodes[0].center
+            }
+            
+        }) { (b: Bool) -> Void in
+            self.shrinkNodes()
+        }
+    }
+    
+    func shrinkNodes()
+    {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            for index in 0...self.nodes.count - 1
+            {
+                self.nodes[index].transform = CGAffineTransformMakeScale(0.01, 0.01)
+            }
+            
+        }) { (b: Bool) -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.AppsGraphAnimationFinished", object: nil)
+        }
+    }
+    
+    func growNodes()
+    {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            for index in 0...self.nodes.count - 1
+            {
+                self.nodes[index].transform = CGAffineTransformMakeScale(1, 1)
+            }
+        
+        }) { (b: Bool) -> Void in
+            self.startMovingToOriginalCenters()
+        }
+    }
+    
+    func startMovingToOriginalCenters()
+    {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            for index in 0...self.nodes.count - 1
+            {
+                self.nodes[index].center = self.originalNodesCenters[index]
+            }
+            
+        }) { (b: Bool) -> Void in
+            self.shouldDisplayEdges = true
+            self.setNeedsDisplay()
+        }
     }
 }

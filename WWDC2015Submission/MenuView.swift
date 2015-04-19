@@ -55,14 +55,8 @@ class MenuView: UIView
     
     func createCloseButton(radius: CGFloat)
     {
-        let closeButton = UIButton.buttonWithType(.System) as! UIButton
+        let closeButton = CloseButton.getCloseButton()
         closeButton.frame = CGRectMake(menuSubView!.center.x - radius / sqrt(2) - 20, menuSubView!.center.y - radius / sqrt(2) - 20, 30, 30)
-        closeButton.backgroundColor = UIColor.blackColor()
-        closeButton.titleLabel?.font = UIFont.systemFontOfSize(19)
-        closeButton.setTitle("×", forState: .Normal)
-        closeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        closeButton.layer.cornerRadius = 15
-        closeButton.layer.masksToBounds = true
         closeButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         
         self.addSubview(closeButton)

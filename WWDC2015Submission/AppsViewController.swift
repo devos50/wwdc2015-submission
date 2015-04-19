@@ -11,7 +11,7 @@ import UIKit
 
 class AppsViewController: PageViewController
 {
-    @IBOutlet weak var appsImageView: UIImageView!
+    @IBOutlet weak var appsButton: RotatingButton!
     @IBOutlet weak var companyButton: UIButton!
     @IBOutlet weak var appsGraphView: AppsGraphView!
     private var appDescriptionView: AppDescriptionView?
@@ -20,8 +20,8 @@ class AppsViewController: PageViewController
     {
         super.viewDidLoad()
         
-        appsImageView.layer.cornerRadius = appsImageView.frame.size.width / 2
-        appsImageView.layer.masksToBounds = true
+        appsButton.layer.cornerRadius = appsButton.frame.size.width / 2
+        appsButton.layer.masksToBounds = true
         
         companyButton.layer.cornerRadius = companyButton.frame.size.width / 2
         companyButton.layer.masksToBounds = true
@@ -36,9 +36,58 @@ class AppsViewController: PageViewController
         self.view.addSubview(appDescriptionView!)
     }
     
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        // start listening to animation finished notifications
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "appsGraphAnimationFinished:", name: "com.codeup.WWDC2015Submission.AppsGraphAnimationFinished", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "appDescriptionCloseAnimationFinished:", name: "com.codeup.WWDC2015Submission.AppDescriptionCloseAnimationFinished", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "com.codeup.WWDC2015Submission.AppsGraphAnimationFinished", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "com.codeup.WWDC2015Submission.AppDescriptionCloseAnimationFinished", object: nil)
+    }
+    
+    func nodeButtonPressed(button: UIButton)
+    {
+        appsGraphView.startMovingToCenter()
+    }
+    
+    func appsGraphAnimationFinished(notification: NSNotification)
+    {
+        appDescriptionView?.hidden = false
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            appDescriptionView?.transform = CGAffineTransformMakeScale(1, 1)
+        }) { (b: Bool) -> Void in
+                // ...
+        }
+    }
+    
+    func appDescriptionCloseAnimationFinished(notification: NSNotification)
+    {
+        appsGraphView.growNodes()
+    }
+    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
         appsGraphView.createGraph()
+        
+        // set the on click targets
+        for index in 0...appsGraphView.nodes.count - 1
+        {
+            let nodeButton = appsGraphView.nodes[index]
+            nodeButton.addTarget(self, action: "nodeButtonPressed:", forControlEvents: .TouchUpInside)
+        }
+    }
+    
+    @IBAction func specialitiesButtonPressed(button: UIButton)
+    {
+        self.performSegueWithIdentifier("SpecialitiesSegue", sender: self)
     }
 }

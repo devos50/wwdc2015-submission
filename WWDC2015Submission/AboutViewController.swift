@@ -11,7 +11,7 @@ import MapKit
 
 class AboutViewController: PageViewController
 {
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoRotatingButton: RotatingButton!
     @IBOutlet weak var appsButton: UIButton!
     @IBOutlet weak var locationMapView: MKMapView!
     
@@ -19,8 +19,8 @@ class AboutViewController: PageViewController
     {
         super.viewDidLoad()
         
-        photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
-        photoImageView.layer.masksToBounds = true
+        photoRotatingButton.layer.cornerRadius = photoRotatingButton.frame.size.width / 2
+        photoRotatingButton.layer.masksToBounds = true
         
         appsButton.layer.cornerRadius = appsButton.frame.size.width / 2
         appsButton.layer.masksToBounds = true

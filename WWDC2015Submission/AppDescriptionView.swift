@@ -30,7 +30,7 @@ class AppDescriptionView: UIView
         let screenHeight = screenRect.size.height
         
         self.backgroundColor = UIColor(white: 0.3, alpha: 0.8)
-        // self.hidden = true
+        self.hidden = true
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.masksToBounds = true
         
@@ -49,19 +49,13 @@ class AppDescriptionView: UIView
         
         animationOffset = self.screenshotsButton!.frame.origin.y - (self.frame.size.height - screenHeight) / 2 - 20
         
-        // self.transform = CGAffineTransformMakeScale(0.01, 0.01)
+        self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }
     
     func createCloseButton(radius: CGFloat)
     {
-        closeButton = UIButton.buttonWithType(.System) as? UIButton
+        closeButton = CloseButton.getCloseButton()
         closeButton?.frame = CGRectMake(appDescriptionCircleView!.center.x - radius / sqrt(2) - 20, appDescriptionCircleView!.center.y - radius / sqrt(2) - 20, 30, 30)
-        closeButton?.backgroundColor = UIColor.blackColor()
-        closeButton?.titleLabel?.font = UIFont.systemFontOfSize(19)
-        closeButton?.setTitle("×", forState: .Normal)
-        closeButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        closeButton?.layer.cornerRadius = 15
-        closeButton?.layer.masksToBounds = true
         closeButton?.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         
         self.addSubview(closeButton!)
@@ -138,6 +132,11 @@ class AppDescriptionView: UIView
     
     func closeButtonPressed(button: UIButton)
     {
-        self.hidden = true
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.transform = CGAffineTransformMakeScale(0.01, 0.01)
+        }) { (b: Bool) -> Void in
+            self.hidden = true
+            NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.AppDescriptionCloseAnimationFinished", object: nil)
+        }
     }
 }
