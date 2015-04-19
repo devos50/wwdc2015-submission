@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oUf-S9-dAq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Start View Controller-->
@@ -306,26 +307,47 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on an app icon to learn more about it." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3e-Ua-k7C">
+                                <rect key="frame" x="16" y="231" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ccX-fh-FGj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSL-f6-Q8f" customClass="AppsGraphView" customModule="WWDC2015Submission" customModuleProvider="target">
+                                <rect key="frame" x="16" y="272" width="568" height="218"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6TR-9y-3y6" secondAttribute="trailing" constant="16" id="22K-18-anC"/>
                             <constraint firstItem="VCt-19-2Sm" firstAttribute="top" secondItem="AE9-EP-1fd" secondAttribute="bottom" constant="-3" id="5pg-XV-XyK"/>
                             <constraint firstItem="oBJ-Hz-InR" firstAttribute="top" secondItem="sEI-Mg-7fX" secondAttribute="bottom" constant="20" id="7LZ-dd-4sn"/>
+                            <constraint firstItem="k3e-Ua-k7C" firstAttribute="top" secondItem="VCt-19-2Sm" secondAttribute="bottom" constant="28" id="Ix1-7p-rBG"/>
                             <constraint firstItem="sEI-Mg-7fX" firstAttribute="leading" secondItem="r24-Iv-Wz3" secondAttribute="trailing" constant="6" id="OiM-wa-gyV"/>
+                            <constraint firstItem="k3e-Ua-k7C" firstAttribute="leading" secondItem="vwg-Y7-Vxb" secondAttribute="leading" constant="16" id="Xh2-MH-0Lk"/>
+                            <constraint firstItem="sSL-f6-Q8f" firstAttribute="top" secondItem="k3e-Ua-k7C" secondAttribute="bottom" constant="20" id="bNe-5w-N8U"/>
                             <constraint firstAttribute="trailing" secondItem="sEI-Mg-7fX" secondAttribute="trailing" constant="16" id="bPP-e5-rRo"/>
                             <constraint firstItem="6TR-9y-3y6" firstAttribute="top" secondItem="mpX-h7-bse" secondAttribute="bottom" constant="123" id="bTN-vx-P1b"/>
                             <constraint firstItem="AE9-EP-1fd" firstAttribute="leading" secondItem="vwg-Y7-Vxb" secondAttribute="leading" id="bZI-cN-Uky"/>
+                            <constraint firstItem="k3e-Ua-k7C" firstAttribute="trailing" secondItem="vwg-Y7-Vxb" secondAttribute="trailingMargin" id="cUX-19-LpN"/>
+                            <constraint firstItem="r24-Iv-Wz3" firstAttribute="top" secondItem="sSL-f6-Q8f" secondAttribute="bottom" constant="20" id="cqC-RX-kwm"/>
                             <constraint firstItem="VCt-19-2Sm" firstAttribute="leading" secondItem="vwg-Y7-Vxb" secondAttribute="leading" constant="16" id="gjv-oB-UIk"/>
                             <constraint firstItem="oBJ-Hz-InR" firstAttribute="top" secondItem="ybr-KF-RNW" secondAttribute="bottom" constant="25" id="hmz-Uw-xeb"/>
+                            <constraint firstAttribute="trailing" secondItem="sSL-f6-Q8f" secondAttribute="trailing" constant="16" id="kxD-Rc-ob8"/>
                             <constraint firstItem="6TR-9y-3y6" firstAttribute="leading" secondItem="VCt-19-2Sm" secondAttribute="trailing" constant="8" id="l1g-SU-tdm"/>
                             <constraint firstItem="sEI-Mg-7fX" firstAttribute="leading" secondItem="ybr-KF-RNW" secondAttribute="trailing" constant="22" id="mcZ-7B-iNd"/>
                             <constraint firstItem="oBJ-Hz-InR" firstAttribute="top" secondItem="r24-Iv-Wz3" secondAttribute="bottom" constant="38" id="nQH-c0-jnr"/>
                             <constraint firstAttribute="trailing" secondItem="AE9-EP-1fd" secondAttribute="trailing" id="qnS-cp-fyD"/>
                             <constraint firstItem="AE9-EP-1fd" firstAttribute="top" secondItem="mpX-h7-bse" secondAttribute="bottom" id="w7f-iJ-Crs"/>
+                            <constraint firstItem="sSL-f6-Q8f" firstAttribute="leading" secondItem="vwg-Y7-Vxb" secondAttribute="leading" constant="16" id="yI3-Di-jUx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appsGraphView" destination="sSL-f6-Q8f" id="UA6-0v-apd"/>
                         <outlet property="appsImageView" destination="6TR-9y-3y6" id="s4C-pF-MC5"/>
                         <outlet property="companyButton" destination="sEI-Mg-7fX" id="rmw-9v-QlR"/>
                     </connections>

@@ -24,7 +24,7 @@ class MenuSubView: UIView
         
         let pageButtonSize = pageButtons[0].frame.size.width
         
-        CGContextSetGrayStrokeColor(context, 0.8, 1.0)
+        CGContextSetGrayStrokeColor(context, 0.6, 1.0)
         CGContextSetLineWidth(context, 1.0)
         
         CGContextMoveToPoint(context, pageButtons[0].frame.origin.x + pageButtonSize / 2, pageButtons[0].frame.origin.y + pageButtonSize / 2)

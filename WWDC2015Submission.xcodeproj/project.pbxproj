@@ -13,6 +13,9 @@
 		1012C1E91AE2C10400D99188 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1012C1E81AE2C10400D99188 /* MapKit.framework */; };
 		1012C1EB1AE2F40F00D99188 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1EA1AE2F40F00D99188 /* PageViewController.swift */; };
 		1012C1ED1AE2F84E00D99188 /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012C1EC1AE2F84E00D99188 /* AppsViewController.swift */; };
+		10235A431AE3D28100392964 /* AppsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A421AE3D28100392964 /* AppsGraphView.swift */; };
+		10235A451AE3EE2300392964 /* AppDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A441AE3EE2300392964 /* AppDescriptionView.swift */; };
+		10235A471AE3EEA900392964 /* AppDescriptionCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */; };
 		10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEB0C01AE290060046B960 /* MenuButton.swift */; };
 		9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F46C3AF1AE25E8100179FBE /* AppDelegate.swift */; };
 		9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F46C3B81AE25E8100179FBE /* LaunchScreen.xib */; };
@@ -44,6 +47,9 @@
 		1012C1E81AE2C10400D99188 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1012C1EA1AE2F40F00D99188 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		1012C1EC1AE2F84E00D99188 /* AppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
+		10235A421AE3D28100392964 /* AppsGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsGraphView.swift; sourceTree = "<group>"; };
+		10235A441AE3EE2300392964 /* AppDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDescriptionView.swift; sourceTree = "<group>"; };
+		10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDescriptionCircleView.swift; sourceTree = "<group>"; };
 		10EEB0C01AE290060046B960 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		9F46C3AA1AE25E8100179FBE /* WWDC2015Submission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015Submission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F46C3AE1AE25E8100179FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,6 +167,9 @@
 				10EEB0C01AE290060046B960 /* MenuButton.swift */,
 				1012C1E11AE29EAC00D99188 /* MenuView.swift */,
 				1012C1E61AE2B1E700D99188 /* MenuSubView.swift */,
+				10235A421AE3D28100392964 /* AppsGraphView.swift */,
+				10235A441AE3EE2300392964 /* AppDescriptionView.swift */,
+				10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */,
 			);
 			name = "Custom views";
 			sourceTree = "<group>";
@@ -269,12 +278,15 @@
 				9F46C3E01AE2784100179FBE /* NavigationControllerDelegate.swift in Sources */,
 				9F46C3DA1AE2663000179FBE /* DottedLineView.swift in Sources */,
 				9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */,
+				10235A451AE3EE2300392964 /* AppDescriptionView.swift in Sources */,
 				1012C1EB1AE2F40F00D99188 /* PageViewController.swift in Sources */,
 				1012C1ED1AE2F84E00D99188 /* AppsViewController.swift in Sources */,
+				10235A431AE3D28100392964 /* AppsGraphView.swift in Sources */,
 				1012C1E71AE2B1E700D99188 /* MenuSubView.swift in Sources */,
 				9F46C3E41AE27A4000179FBE /* AboutViewController.swift in Sources */,
 				1012C1E21AE29EAC00D99188 /* MenuView.swift in Sources */,
 				10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */,
+				10235A471AE3EEA900392964 /* AppDescriptionCircleView.swift in Sources */,
 				9F46C3DE1AE26B6400179FBE /* StartButton.swift in Sources */,
 				1012C1E51AE2A50100D99188 /* UIColorExtension.swift in Sources */,
 				9F46C3D21AE25EDB00179FBE /* StartViewController.swift in Sources */,
