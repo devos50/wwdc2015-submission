@@ -26,7 +26,7 @@ class CircleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController!
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)as UIViewController!
         
-        var buttonFrame = CGRectZero
+        var buttonFrame = fromViewController.view.frame
         if fromViewController is StartViewController
         {
             buttonFrame = (fromViewController as! StartViewController).startButton!.frame

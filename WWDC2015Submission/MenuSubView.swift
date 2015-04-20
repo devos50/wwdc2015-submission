@@ -54,7 +54,7 @@ class MenuSubView: UIView
     {
         for index in 0...pageButtons.count - 1
         {
-            let delay = 0.2 * Double(index)
+            let delay = 0.15 * Double(index)
             UIView.animateWithDuration(0.3, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.pageButtons[index].alpha = 1.0
                 }) { (b: Bool) -> Void in

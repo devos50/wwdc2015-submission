@@ -21,6 +21,7 @@ class MenuView: UIView
     var menuSubView: MenuSubView?
     let pageButtonSize: CGFloat = 60
     let pageButtonCirclePadding: CGFloat = 10
+    var pressedButtonTag: Int?
     
     override init(frame: CGRect)
     {
@@ -45,10 +46,10 @@ class MenuView: UIView
         self.addSubview(menuSubView!)
         
         createCloseButton(radius)
-        createPageButton(.Top, backgroundColor: UIColor(rgba: "#6EB339"), backgroundImage: UIImage(named: "profileicon")!)
-        createPageButton(.Right, backgroundColor: UIColor(rgba: "#43A2D1"), backgroundImage: UIImage(named: "apppageicon")!)
-        createPageButton(.Bottom, backgroundColor: UIColor(rgba: "#DE8F35"), backgroundImage: UIImage(named: "companyicon")!)
-        createPageButton(.Left, backgroundColor: UIColor(rgba: "#CA2CAB"), backgroundImage: UIImage(named: "snowboardicon")!)
+        createPageButton(.Top, backgroundColor: UIColor(rgba: "#6EB339"), backgroundImage: UIImage(named: "profileicon")!, tag: 101)
+        createPageButton(.Right, backgroundColor: UIColor(rgba: "#43A2D1"), backgroundImage: UIImage(named: "apppageicon")!, tag: 102)
+        createPageButton(.Bottom, backgroundColor: UIColor(rgba: "#DE8F35"), backgroundImage: UIImage(named: "companyicon")!, tag: 103)
+        createPageButton(.Left, backgroundColor: UIColor(rgba: "#CA2CAB"), backgroundImage: UIImage(named: "snowboardicon")!, tag: 104)
         
         self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }
@@ -62,7 +63,7 @@ class MenuView: UIView
         self.addSubview(closeButton)
     }
     
-    func createPageButton(position: PageButtonLocation, backgroundColor: UIColor, backgroundImage: UIImage)
+    func createPageButton(position: PageButtonLocation, backgroundColor: UIColor, backgroundImage: UIImage, tag: Int)
     {
         let subViewRadius = menuSubView!.frame.size.width / 2
         let dx = [-pageButtonSize / 2, subViewRadius - pageButtonSize - pageButtonCirclePadding, -pageButtonSize / 2, -subViewRadius + pageButtonCirclePadding]
@@ -75,6 +76,8 @@ class MenuView: UIView
         pageButton.backgroundColor = backgroundColor
         pageButton.layer.masksToBounds = true
         pageButton.alpha = 0.0
+        pageButton.tag = tag
+        pageButton.addTarget(self, action: "menuButtonPressed:", forControlEvents: .TouchUpInside)
         
         pageButton.setBackgroundImage(backgroundImage, forState: .Normal)
         menuSubView?.addPageButton(pageButton)
@@ -86,15 +89,51 @@ class MenuView: UIView
     {
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.transform = CGAffineTransformMakeScale(0.01, 0.01)
-            }) { (b: Bool) -> Void in
-                self.hidden = true
+        }) { (b: Bool) -> Void in
+            self.hidden = true
                 
-                // we should set the alpha of the buttons in the subview to 0.0 again
-                self.menuSubView?.hideAllPageButtons()
-                self.menuSubView?.shouldDisplayEdges = false
-                self.menuSubView?.setNeedsDisplay()
+            // we should set the alpha of the buttons in the subview to 0.0 again
+            self.menuSubView?.hideAllPageButtons()
+            self.menuSubView?.shouldDisplayEdges = false
+            self.menuSubView?.setNeedsDisplay()
                 
-                NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
+        }
+    }
+    
+    func menuButtonPressed(button: UIButton)
+    {
+        pressedButtonTag = button.tag
+        
+        // move the buttons to the center
+        menuSubView?.shouldDisplayEdges = false
+        menuSubView?.setNeedsDisplay()
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            for index in 0...self.menuSubView!.pageButtons.count - 1
+            {
+                self.menuSubView!.pageButtons[index].center = CGPointMake(self.menuSubView!.frame.size.width / 2, self.menuSubView!.frame.size.height / 2)
+            }
+            
+        }) { (b: Bool) -> Void in
+            self.shrinkAndHideMenu()
+        }
+    }
+    
+    func shrinkAndHideMenu()
+    {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.transform = CGAffineTransformMakeScale(0.01, 0.01)
+        }) { (b: Bool) -> Void in
+            self.hidden = true
+            
+            var identifier = "AboutViewController"
+            if self.pressedButtonTag == 102 { identifier = "AppsViewController" }
+            else if self.pressedButtonTag == 103 { identifier = "SpecialitiesViewController" }
+            else if self.pressedButtonTag == 104 { identifier = "InterestsViewController" }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.ShouldOpenPage", object: nil, userInfo: ["page" : identifier])
         }
     }
     

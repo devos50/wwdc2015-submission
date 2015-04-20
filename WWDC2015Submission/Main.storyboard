@@ -129,7 +129,7 @@
         <!--About View Controller-->
         <scene sceneID="NpU-zr-n8h">
             <objects>
-                <viewController id="zaT-hG-q9k" customClass="AboutViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="zaT-hG-q9k" customClass="AboutViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K9J-dy-sOC"/>
                         <viewControllerLayoutGuide type="bottom" id="VPa-vL-nt7"/>
@@ -270,7 +270,7 @@
         <!--Apps View Controller-->
         <scene sceneID="L9s-7Z-aJy">
             <objects>
-                <viewController id="tS2-KL-RPf" customClass="AppsViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppsViewController" id="tS2-KL-RPf" customClass="AppsViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mpX-h7-bse"/>
                         <viewControllerLayoutGuide type="bottom" id="oBJ-Hz-InR"/>
@@ -390,7 +390,7 @@
         <!--Specialities View Controller-->
         <scene sceneID="tk3-YS-8Af">
             <objects>
-                <viewController id="4eI-Q1-Guj" customClass="SpecialitiesViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpecialitiesViewController" id="4eI-Q1-Guj" customClass="SpecialitiesViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h3C-Bv-WaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="xiG-Im-A4y"/>
@@ -515,7 +515,7 @@
         <!--Interests View Controller-->
         <scene sceneID="ap8-Xa-3iq">
             <objects>
-                <viewController id="Amd-j2-Ebh" customClass="InterestsViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestsViewController" id="Amd-j2-Ebh" customClass="InterestsViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QzL-wC-pSM"/>
                         <viewControllerLayoutGuide type="bottom" id="QaZ-0K-uqN"/>

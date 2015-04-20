@@ -49,6 +49,7 @@ class PageViewController: UIViewController
         // start listening to animation finished notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuAnimationFinished:", name: "com.codeup.WWDC2015Submission.MenuButtonAnimationFinished", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuCloseAnimationFinished:", name: "com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldOpenPage:", name: "com.codeup.WWDC2015Submission.ShouldOpenPage", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool)
@@ -57,6 +58,7 @@ class PageViewController: UIViewController
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "com.codeup.WWDC2015Submission.MenuButtonAnimationFinished", object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "com.codeup.WWDC2015Submission.MenuCloseAnimationFinished", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "com.codeup.WWDC2015Submission.ShouldOpenPage", object: nil)
     }
     
     func menuAnimationFinished(notification: NSNotification)
@@ -79,5 +81,14 @@ class PageViewController: UIViewController
     func menuButtonPressed(sender: UIButton)
     {
         menuButton?.startButtonAnimation()
+    }
+    
+    func shouldOpenPage(notification: NSNotification)
+    {
+        let userInfo: Dictionary<String,String!> = notification.userInfo as! Dictionary<String,String!>
+        let storyboardIdentifier = userInfo["page"]
+        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(storyboardIdentifier!) as! PageViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
