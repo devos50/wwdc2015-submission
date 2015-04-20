@@ -39,6 +39,10 @@ class CircleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         {
             buttonFrame = (fromViewController as! AppsViewController).companyButton!.frame
         }
+        else if fromViewController is SpecialitiesViewController
+        {
+            buttonFrame = (fromViewController as! SpecialitiesViewController).interestsButton!.frame
+        }
         
         containerView.addSubview(toViewController.view)
         
@@ -46,7 +50,7 @@ class CircleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         var extremePoint = CGPoint(x: CGRectGetMidX(buttonFrame) - 0, y: CGRectGetMidY(buttonFrame) - CGRectGetHeight(toViewController.view.bounds))
         var radius = sqrt((extremePoint.x*extremePoint.x) + (extremePoint.y*extremePoint.y))
         
-        if fromViewController is AboutViewController || fromViewController is AppsViewController
+        if fromViewController is AboutViewController || fromViewController is AppsViewController || fromViewController is SpecialitiesViewController
         {
             radius = sqrt(buttonFrame.origin.x * buttonFrame.origin.x + buttonFrame.origin.y * buttonFrame.origin.y) + buttonFrame.width
         }

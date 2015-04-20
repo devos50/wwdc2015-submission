@@ -205,4 +205,9 @@ class SpecialitiesViewController: PageViewController
         }
         currentlySelectedButton = nil
     }
+    
+    @IBAction func interestsButtonPressed()
+    {
+        self.performSegueWithIdentifier("InterestsSegue", sender: self)
+    }
 }
