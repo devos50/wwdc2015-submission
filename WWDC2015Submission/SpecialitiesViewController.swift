@@ -101,7 +101,7 @@ class SpecialitiesViewController: PageViewController
     
     func addArrowImage()
     {
-        let arrowImageView = UIImageView(frame: CGRectMake(90, specialityButtons[3].frame.origin.y + 10, 72, 72))
+        let arrowImageView = UIImageView(frame: CGRectMake(80, specialityButtons[3].frame.origin.y + 5, 72, 72))
         arrowImageView.image = UIImage(named: "arrowupwardicon")
         arrowImageView.alpha = 0.0
         self.view.insertSubview(arrowImageView, belowSubview: specialityView!)
@@ -129,6 +129,7 @@ class SpecialitiesViewController: PageViewController
         specialitiesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         specialitiesButton.backgroundColor = UIColor(red: 220.0/255.0, green: 130.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         specialitiesButton.originalTitle = title
+        specialitiesButton.titleLabel?.font = UIFont(name: "LucidaGrande", size: 14)
         specialitiesButton.tag = 100 + index
         specialitiesButton.addTarget(self, action: "specialityButtonPressed:", forControlEvents: .TouchUpInside)
         

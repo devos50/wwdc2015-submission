@@ -4,6 +4,28 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="lucida.ttf">
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+            <string>LucidaGrande</string>
+        </mutableArray>
+        <mutableArray key="novecentowidebold.otf">
+            <string>Novecentowide-DemiBold</string>
+            <string>Novecentowide-DemiBold</string>
+            <string>Novecentowide-DemiBold</string>
+            <string>Novecentowide-DemiBold</string>
+            <string>Novecentowide-DemiBold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Start View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -47,11 +69,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC2015 Submission" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acQ-i4-ADT">
-                                <rect key="frame" x="16" y="249" width="568" height="21"/>
+                                <rect key="frame" x="16" y="245" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2nN-WD-HKw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Novecentowide-DemiBold" family="Novecento wide" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -60,7 +82,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="msH-HA-9IP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -77,7 +99,7 @@
                             <constraint firstItem="8lN-8E-z4G" firstAttribute="top" secondItem="vE6-Ya-v54" secondAttribute="bottom" constant="12" id="2jU-dX-Tst"/>
                             <constraint firstItem="PO6-0W-Hma" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="130" id="CV2-Ak-Azs"/>
                             <constraint firstItem="vE6-Ya-v54" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Fp0-N7-qs4"/>
-                            <constraint firstItem="acQ-i4-ADT" firstAttribute="top" secondItem="PO6-0W-Hma" secondAttribute="bottom" constant="19" id="I7q-GV-3QE"/>
+                            <constraint firstItem="acQ-i4-ADT" firstAttribute="top" secondItem="PO6-0W-Hma" secondAttribute="bottom" constant="15" id="I7q-GV-3QE"/>
                             <constraint firstAttribute="trailing" secondItem="vE6-Ya-v54" secondAttribute="trailing" constant="16" id="Kxa-ba-NFk"/>
                             <constraint firstItem="1MP-SL-jnp" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="QkI-pl-u6p"/>
                             <constraint firstItem="o6P-sd-3rp" firstAttribute="top" secondItem="8lN-8E-z4G" secondAttribute="bottom" constant="15" id="U77-LG-64q"/>
@@ -85,7 +107,7 @@
                             <constraint firstItem="1MP-SL-jnp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ddL-Tl-Ybu"/>
                             <constraint firstAttribute="centerX" secondItem="PO6-0W-Hma" secondAttribute="centerX" id="dpk-nn-ZAD"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="o6P-sd-3rp" secondAttribute="bottom" constant="29" id="fic-vo-aJJ"/>
-                            <constraint firstItem="vE6-Ya-v54" firstAttribute="top" secondItem="acQ-i4-ADT" secondAttribute="bottom" constant="7" id="g2d-6g-83w"/>
+                            <constraint firstItem="vE6-Ya-v54" firstAttribute="top" secondItem="acQ-i4-ADT" secondAttribute="bottom" constant="11" id="g2d-6g-83w"/>
                             <constraint firstAttribute="trailing" secondItem="acQ-i4-ADT" secondAttribute="trailing" constant="16" id="gi7-lE-E7R"/>
                             <constraint firstAttribute="centerX" secondItem="8lN-8E-z4G" secondAttribute="centerX" id="ht1-XF-3Jr"/>
                             <constraint firstItem="acQ-i4-ADT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="tLP-Ic-UAc"/>
@@ -127,7 +149,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="jkQ-ga-NAf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="Novecentowide-DemiBold" family="Novecento wide" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -141,7 +163,7 @@
                                 <rect key="frame" x="10" y="226" width="580" height="191"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Hi everyone! I'm Martijn de Vos, 22 years old and I study Computer Science at the Delft University of Technology. I live in the Netherlands. I'm in particular interested in iOS development and I've been doing this for about five years now. About a year ago, I started my own company named CodeUp. This app shows some of my work experience, interests and skills. You can navigate through the app with the menu button in the upper left corner.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowicon" translatesAutoresizingMaskIntoConstraints="NO" id="W94-q2-B6F">
@@ -156,7 +178,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Y5n-Lh-Qso"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -187,7 +209,7 @@
                                     <constraint firstAttribute="height" constant="21" id="HZ8-iD-li2"/>
                                     <constraint firstAttribute="width" constant="188" id="zdu-4C-Ufd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -268,7 +290,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="8tG-vP-7h0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="Novecentowide-DemiBold" family="Novecento wide" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -300,7 +322,7 @@
                                     <constraint firstAttribute="height" constant="21" id="Bd2-1h-kgV"/>
                                     <constraint firstAttribute="width" constant="278" id="Elf-yS-ktL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -309,7 +331,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ccX-fh-FGj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -399,7 +421,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="z5h-e8-CA9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="Novecentowide-DemiBold" family="Novecento wide" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -409,7 +431,7 @@
                                     <constraint firstAttribute="height" constant="21" id="iOj-jh-keS"/>
                                     <constraint firstAttribute="width" constant="147" id="t2O-SN-um0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -419,7 +441,7 @@
                                     <constraint firstAttribute="height" constant="21" id="Dgz-kp-6CI"/>
                                     <constraint firstAttribute="width" constant="147" id="EmQ-Z4-5CV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -452,7 +474,7 @@
                                     <constraint firstAttribute="width" constant="125" id="AfK-cB-8r8"/>
                                     <constraint firstAttribute="height" constant="21" id="ytl-KD-aQF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -513,7 +535,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="J21-aZ-4t5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="Novecentowide-DemiBold" family="Novecento wide" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -535,7 +557,7 @@
                                 <string key="text">My main interests regarding software are developing apps for the mobile platform. I like to see what people can do with apps and I like the fact that they can use it at any time and any place. In particular, I like to work on creating communication facilities for users such as chat clients.
 
 When I'm not developing, I'm probably using other apps, playing games or watching movies. A big hobby of mine is snowboarding. I go nearly every year to Austria on holiday.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to know more?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-fv-iLu">
@@ -544,7 +566,7 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                                     <constraint firstAttribute="width" constant="143" id="dhj-N2-fCv"/>
                                     <constraint firstAttribute="height" constant="21" id="y4T-IZ-FJ8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>

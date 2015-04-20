@@ -24,6 +24,8 @@
 		10D1034B1AE5345600C1E678 /* SpecialityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1034A1AE5345600C1E678 /* SpecialityView.swift */; };
 		10D1034D1AE534B500C1E678 /* SpecialityCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1034C1AE534B500C1E678 /* SpecialityCircleView.swift */; };
 		10D1034F1AE54E5B00C1E678 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1034E1AE54E5B00C1E678 /* InterestsViewController.swift */; };
+		10D103511AE55A1E00C1E678 /* novecentowidebold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10D103501AE55A1E00C1E678 /* novecentowidebold.otf */; };
+		10D103531AE55B0500C1E678 /* lucida.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10D103521AE55B0500C1E678 /* lucida.ttf */; };
 		10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEB0C01AE290060046B960 /* MenuButton.swift */; };
 		9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F46C3AF1AE25E8100179FBE /* AppDelegate.swift */; };
 		9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F46C3B81AE25E8100179FBE /* LaunchScreen.xib */; };
@@ -66,6 +68,8 @@
 		10D1034A1AE5345600C1E678 /* SpecialityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialityView.swift; sourceTree = "<group>"; };
 		10D1034C1AE534B500C1E678 /* SpecialityCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialityCircleView.swift; sourceTree = "<group>"; };
 		10D1034E1AE54E5B00C1E678 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
+		10D103501AE55A1E00C1E678 /* novecentowidebold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = novecentowidebold.otf; sourceTree = "<group>"; };
+		10D103521AE55B0500C1E678 /* lucida.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lucida.ttf; sourceTree = "<group>"; };
 		10EEB0C01AE290060046B960 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		9F46C3AA1AE25E8100179FBE /* WWDC2015Submission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015Submission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F46C3AE1AE25E8100179FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 		9F46C3AD1AE25E8100179FBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				10D103521AE55B0500C1E678 /* lucida.ttf */,
+				10D103501AE55A1E00C1E678 /* novecentowidebold.otf */,
 				9F46C3AE1AE25E8100179FBE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -311,9 +317,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D103531AE55B0500C1E678 /* lucida.ttf in Resources */,
 				9F46C3DC1AE2665F00179FBE /* Main.storyboard in Resources */,
 				9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */,
 				9F46C3D11AE25EDB00179FBE /* Images.xcassets in Resources */,
+				10D103511AE55A1E00C1E678 /* novecentowidebold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
