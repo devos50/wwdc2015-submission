@@ -63,4 +63,9 @@ class SpecialityView: UIView
                 NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.SpecialityViewCloseAnimationFinished", object: nil)
         }
     }
+    
+    func setInfo(title: String, specialityDescription: String)
+    {
+        specialityCircleView!.setInfo(title, specialityDescription: specialityDescription)
+    }
 }

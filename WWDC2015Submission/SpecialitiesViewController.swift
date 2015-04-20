@@ -17,6 +17,7 @@ class SpecialitiesViewController: PageViewController
     private var specialityView: SpecialityView?
     
     let titles = ["Own Company", "iOS Development", "Web Development", "Backends", "Swift", "Objective-C", "Java", "PHP", "C++"]
+    let specialityDescriptions = ["I have my own company named CodeUp, which specializes in building mobile apps and websites for other companies.", "I started about five years ago with developing for the iOS platform (after receiving an iPod Touch). Now, I build apps for other companies.", "Besides mobile development, I also create website. One the website I'm the most proud of is Klockon, which aims to bring an overview of events to students.", "Many apps I build require a backend server. I enjoy setting up these servers. I also have my own server which I use for hosting of websites.", "Shortly after the release of Swift, I started to learn the language. I like to work with the language and currently its my primary language I use for iOS development.", "I started learning Objective-C several years ago. I found the language hard to learn but I managed to get better with it.", "One of the first programming language I learned was Java. I've created various applications with Java such as chat applications, tools and even a distributed game.", "PHP the language I use most when creating websites. A framework I recently started using is Laravel which provides many tools to easily create a great website.", "I use the C++ language when I participate in programming contests. I think the language provides a great set of tools and has enough freedom to do whatever you want."]
     let originalWidths: [CGFloat] = [119, 140, 140, 85, 56, 100, 56, 56, 56]
     var specialityButtons = [SpecialitiesButton]()
     var currentlySelectedButton: SpecialitiesButton?
@@ -147,6 +148,7 @@ class SpecialitiesViewController: PageViewController
         // make the button animation
         let buttonIndex = button.tag - 100
         button.setTitle("", forState: .Normal)
+        specialityView!.setInfo(titles[buttonIndex], specialityDescription: specialityDescriptions[buttonIndex])
         if buttonIndex <= 3
         {
             UIView.animateWithDuration(0.2, animations: { () -> Void in
