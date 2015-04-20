@@ -13,7 +13,7 @@ class PageViewController: UIViewController
 {
     let menuButtonSize: CGFloat = 40
     private var menuButton: MenuButton?
-    private var menuView: MenuView?
+    var menuView: MenuView?
     
     override func viewDidLoad()
     {

@@ -17,7 +17,7 @@ class DottedLineView: UIView
         CGContextSetLineWidth(context, 10.0)
         CGContextSetStrokeColorWithColor(context, UIColor.lightGrayColor().CGColor)
         let dashArray:[CGFloat] = [0.0, 25.0]
-        CGContextSetLineCap(context, kCGLineCapRound);
+        CGContextSetLineCap(context, kCGLineCapRound)
         CGContextSetLineDash(context, 0.0, dashArray, 2)
         CGContextMoveToPoint(context, self.frame.size.width / 2, 10)
         CGContextAddLineToPoint(context, self.frame.size.width / 2, self.frame.size.height)

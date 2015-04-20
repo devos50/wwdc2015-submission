@@ -85,7 +85,7 @@ class AppsGraphView: UIView
             (b: Bool) -> Void in
                 self.shouldDisplayEdges = true
                 self.setNeedsDisplay()
-        };
+        }
     }
     
     func createNode(position: GraphViewPosition, backgroundImage: UIImage, withBorder: Bool)

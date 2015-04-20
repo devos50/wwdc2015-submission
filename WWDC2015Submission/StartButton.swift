@@ -32,6 +32,7 @@ class StartButton: UIButton
     
     private func performShrinkAnimation()
     {
+        self.setTitle("", forState: .Normal)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.transform = CGAffineTransformMakeScale(0.1, 0.1)
             }) { (b: Bool) -> Void in
@@ -45,7 +46,7 @@ class StartButton: UIButton
             self.center = self.destination!
         }) { (b: Bool) -> Void in
             NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.StartButtonAnimationFinished", object: nil)
-        };
+        }
     }
     
     func startButtonAnimation(destination: CGPoint)

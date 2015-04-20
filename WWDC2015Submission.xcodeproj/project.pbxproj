@@ -20,6 +20,9 @@
 		10235A4C1AE40BA200392964 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A4B1AE40BA200392964 /* CloseButton.swift */; };
 		10235A4E1AE4255900392964 /* RotatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A4D1AE4255900392964 /* RotatingButton.swift */; };
 		10235A501AE42D0900392964 /* SpecialitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10235A4F1AE42D0900392964 /* SpecialitiesViewController.swift */; };
+		10D103461AE51C6600C1E678 /* SpecialitiesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D103451AE51C6600C1E678 /* SpecialitiesButton.swift */; };
+		10D1034B1AE5345600C1E678 /* SpecialityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1034A1AE5345600C1E678 /* SpecialityView.swift */; };
+		10D1034D1AE534B500C1E678 /* SpecialityCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D1034C1AE534B500C1E678 /* SpecialityCircleView.swift */; };
 		10EEB0C11AE290060046B960 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEB0C01AE290060046B960 /* MenuButton.swift */; };
 		9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F46C3AF1AE25E8100179FBE /* AppDelegate.swift */; };
 		9F46C3BA1AE25E8100179FBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F46C3B81AE25E8100179FBE /* LaunchScreen.xib */; };
@@ -58,6 +61,9 @@
 		10235A4B1AE40BA200392964 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		10235A4D1AE4255900392964 /* RotatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingButton.swift; sourceTree = "<group>"; };
 		10235A4F1AE42D0900392964 /* SpecialitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialitiesViewController.swift; sourceTree = "<group>"; };
+		10D103451AE51C6600C1E678 /* SpecialitiesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialitiesButton.swift; sourceTree = "<group>"; };
+		10D1034A1AE5345600C1E678 /* SpecialityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialityView.swift; sourceTree = "<group>"; };
+		10D1034C1AE534B500C1E678 /* SpecialityCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialityCircleView.swift; sourceTree = "<group>"; };
 		10EEB0C01AE290060046B960 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		9F46C3AA1AE25E8100179FBE /* WWDC2015Submission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2015Submission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F46C3AE1AE25E8100179FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +115,35 @@
 				10235A491AE40A3E00392964 /* AppInfo.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		10D103471AE533CC00C1E678 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				10EEB0C01AE290060046B960 /* MenuButton.swift */,
+				1012C1E11AE29EAC00D99188 /* MenuView.swift */,
+				1012C1E61AE2B1E700D99188 /* MenuSubView.swift */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
+		10D103481AE533D700C1E678 /* app description */ = {
+			isa = PBXGroup;
+			children = (
+				10235A421AE3D28100392964 /* AppsGraphView.swift */,
+				10235A441AE3EE2300392964 /* AppDescriptionView.swift */,
+				10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */,
+			);
+			name = "app description";
+			sourceTree = "<group>";
+		};
+		10D103491AE5342800C1E678 /* speciality view */ = {
+			isa = PBXGroup;
+			children = (
+				10D1034A1AE5345600C1E678 /* SpecialityView.swift */,
+				10D1034C1AE534B500C1E678 /* SpecialityCircleView.swift */,
+			);
+			name = "speciality view";
 			sourceTree = "<group>";
 		};
 		9F46C3A11AE25E8100179FBE = {
@@ -180,16 +215,14 @@
 		9F46C3D81AE2662500179FBE /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				10D103491AE5342800C1E678 /* speciality view */,
+				10D103481AE533D700C1E678 /* app description */,
+				10D103471AE533CC00C1E678 /* menu */,
 				9F46C3D91AE2663000179FBE /* DottedLineView.swift */,
 				9F46C3DD1AE26B6400179FBE /* StartButton.swift */,
-				10EEB0C01AE290060046B960 /* MenuButton.swift */,
-				1012C1E11AE29EAC00D99188 /* MenuView.swift */,
-				1012C1E61AE2B1E700D99188 /* MenuSubView.swift */,
-				10235A421AE3D28100392964 /* AppsGraphView.swift */,
-				10235A441AE3EE2300392964 /* AppDescriptionView.swift */,
-				10235A461AE3EEA900392964 /* AppDescriptionCircleView.swift */,
 				10235A4B1AE40BA200392964 /* CloseButton.swift */,
 				10235A4D1AE4255900392964 /* RotatingButton.swift */,
+				10D103451AE51C6600C1E678 /* SpecialitiesButton.swift */,
 			);
 			name = "Custom views";
 			sourceTree = "<group>";
@@ -298,7 +331,10 @@
 				9F46C3E01AE2784100179FBE /* NavigationControllerDelegate.swift in Sources */,
 				9F46C3DA1AE2663000179FBE /* DottedLineView.swift in Sources */,
 				9F46C3B01AE25E8100179FBE /* AppDelegate.swift in Sources */,
+				10D1034D1AE534B500C1E678 /* SpecialityCircleView.swift in Sources */,
+				10D103461AE51C6600C1E678 /* SpecialitiesButton.swift in Sources */,
 				10235A451AE3EE2300392964 /* AppDescriptionView.swift in Sources */,
+				10D1034B1AE5345600C1E678 /* SpecialityView.swift in Sources */,
 				1012C1EB1AE2F40F00D99188 /* PageViewController.swift in Sources */,
 				1012C1ED1AE2F84E00D99188 /* AppsViewController.swift in Sources */,
 				10235A501AE42D0900392964 /* SpecialitiesViewController.swift in Sources */,
