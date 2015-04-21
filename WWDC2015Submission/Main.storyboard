@@ -162,7 +162,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkg-C8-HcS">
                                 <rect key="frame" x="10" y="226" width="580" height="191"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Hi everyone! I'm Martijn de Vos, 22 years old and I study Computer Science at the Delft University of Technology. I live in the Netherlands. I'm in particular interested in iOS development and I've been doing this for about five years now. About a year ago, I started my own company named CodeUp. This app shows some of my work experience, interests and skills. You can navigate through the app with the menu button in the upper left corner.</string>
+                                <string key="text">Hi everyone! I'm Martijn de Vos, 22 years old and I'm attending a Master Computer Science at the Delft University of Technology. My bachelor was also in Computer Science. I live in the Netherlands. I'm in particular interested in iOS development and I've been doing this for about five years now. About a year ago, I started my own company named CodeUp. This app shows some of my work experience, interests and skills. You can navigate through the app with the menu button in the upper left corner.</string>
                                 <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

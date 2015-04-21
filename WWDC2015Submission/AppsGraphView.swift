@@ -58,27 +58,27 @@ class AppsGraphView: UIView
     
     func createGraph()
     {
-        createNode(.Center, backgroundImage: UIImage(named: "edutoetslogo")!, withBorder: false)
+        createNode(.Center, backgroundImage: UIImage(named: appsLogos[0])!, withBorder: false, index: 0)
         UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.nodes.last!.alpha = 1.0
             }, completion: nil)
         
-        createNode(.UpperLeft, backgroundImage: UIImage(named: "newlinqlogo")!, withBorder: true)
+        createNode(.UpperLeft, backgroundImage: UIImage(named: appsLogos[1])!, withBorder: true, index: 1)
         UIView.animateWithDuration(0.3, delay: 0.2, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.nodes.last!.alpha = 1.0
         }, completion: nil)
         
-        createNode(.UpperRight, backgroundImage: UIImage(named: "carambolecounterlogo")!, withBorder: false)
+        createNode(.UpperRight, backgroundImage: UIImage(named: appsLogos[2])!, withBorder: false, index: 2)
         UIView.animateWithDuration(0.3, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.nodes.last!.alpha = 1.0
         }, completion: nil)
         
-        createNode(.LowerLeft, backgroundImage: UIImage(named: "tulogo")!, withBorder: false)
+        createNode(.LowerLeft, backgroundImage: UIImage(named: appsLogos[3])!, withBorder: false, index: 3)
         UIView.animateWithDuration(0.3, delay: 0.6, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.nodes.last!.alpha = 1.0
         }, completion: nil)
         
-        createNode(.LowerRight, backgroundImage: UIImage(named: "camuselogo")!, withBorder: true)
+        createNode(.LowerRight, backgroundImage: UIImage(named: appsLogos[4])!, withBorder: true, index: 4)
         UIView.animateWithDuration(0.3, delay: 0.8, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.nodes.last!.alpha = 1.0
         }) {
@@ -88,7 +88,7 @@ class AppsGraphView: UIView
         }
     }
     
-    func createNode(position: GraphViewPosition, backgroundImage: UIImage, withBorder: Bool)
+    func createNode(position: GraphViewPosition, backgroundImage: UIImage, withBorder: Bool, index: Int)
     {
         let nodeButton = UIButton.buttonWithType(.System) as! UIButton
         
@@ -102,6 +102,7 @@ class AppsGraphView: UIView
         nodeButton.frame = CGRectMake(center.x - newlinqButtonSize / 2, center.y - newlinqButtonSize / 2, newlinqButtonSize, newlinqButtonSize)
         nodeButton.setBackgroundImage(backgroundImage, forState: .Normal)
         nodeButton.backgroundColor = UIColor.whiteColor()
+        nodeButton.tag = 200 + index
         
         nodeButton.layer.cornerRadius = nodeButton.frame.size.width / 2
         nodeButton.layer.masksToBounds = true

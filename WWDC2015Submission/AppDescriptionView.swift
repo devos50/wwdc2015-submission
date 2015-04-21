@@ -20,6 +20,10 @@ class AppDescriptionView: UIView
     var screenshotImageView: UIImageView?
     var showScreenshot = false
     var animationOffset: CGFloat?
+    var leftArrowButton: UIButton?
+    var rightArrowButton: UIButton?
+    var radius: CGFloat?
+    var activeAppIndex = 0
     
     override init(frame: CGRect)
     {
@@ -35,17 +39,18 @@ class AppDescriptionView: UIView
         self.layer.masksToBounds = true
         
         // add the sub view to the menu (80% of the screen width)
-        let radius = screenWidth * 0.4
-        appDescriptionCircleView = AppDescriptionCircleView(frame: CGRectMake(self.frame.size.width / 2 - radius, self.frame.size.height / 2 - radius, radius * 2, radius * 2))
+        radius = screenWidth * 0.4
+        appDescriptionCircleView = AppDescriptionCircleView(frame: CGRectMake(self.frame.size.width / 2 - radius!, self.frame.size.height / 2 - radius!, radius! * 2, radius! * 2))
         appDescriptionCircleView?.backgroundColor = UIColor.whiteColor()
-        appDescriptionCircleView?.layer.cornerRadius = radius
+        appDescriptionCircleView?.layer.cornerRadius = radius!
         appDescriptionCircleView?.layer.masksToBounds = true
         
         self.addSubview(appDescriptionCircleView!)
-        createCloseButton(radius)
-        createAppIcon(radius)
+        createCloseButton(radius!)
+        createAppIcon(radius!)
         createScreenshotsButton()
         createScreenshot()
+        createNavigationButtons()
         
         animationOffset = self.screenshotsButton!.frame.origin.y - (self.frame.size.height - screenHeight) / 2 - 20
         
@@ -116,13 +121,38 @@ class AppDescriptionView: UIView
             self.appIconImageView!.center = CGPointMake(self.appIconImageView!.center.x, self.appIconImageView!.center.y - offsetY)
             self.screenshotImageView!.center = CGPointMake(self.screenshotImageView!.center.x, self.screenshotImageView!.center.y - offsetY)
             
-            if !self.showScreenshot { self.screenshotImageView!.alpha = 1.0 }
-            else { self.screenshotImageView!.alpha = 0.0 }
+            if !self.showScreenshot
+            {
+                self.screenshotImageView!.alpha = 1.0
+            }
+            else
+            {
+                self.screenshotImageView!.alpha = 0.0
+            }
         }) { (b: Bool) -> Void in
             // ...
         }
         
         showScreenshot = !showScreenshot
+    }
+    
+    func createNavigationButtons()
+    {
+        let screenRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        
+        rightArrowButton = UIButton.buttonWithType(.System) as? UIButton
+        rightArrowButton?.frame = CGRectMake(self.frame.size.width / 2 + radius! + 4, self.frame.size.height / 2 - 16, 32, 32)
+        rightArrowButton?.setBackgroundImage(UIImage(named: "rightbutton"), forState: .Normal)
+        rightArrowButton?.addTarget(self, action: "rightButtonPressed", forControlEvents: .TouchUpInside)
+        self.addSubview(rightArrowButton!)
+        
+        leftArrowButton = UIButton.buttonWithType(.System) as? UIButton
+        leftArrowButton?.frame = CGRectMake(self.frame.size.width / 2 - radius! - 4 - 32, self.frame.size.height / 2 - 16, 32, 32)
+        leftArrowButton?.setBackgroundImage(UIImage(named: "leftbutton"), forState: .Normal)
+        leftArrowButton?.addTarget(self, action: "leftButtonPressed", forControlEvents: .TouchUpInside)
+        self.addSubview(leftArrowButton!)
     }
 
     required init(coder aDecoder: NSCoder)
@@ -138,5 +168,37 @@ class AppDescriptionView: UIView
             self.hidden = true
             NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.AppDescriptionCloseAnimationFinished", object: nil)
         }
+    }
+    
+    func rightButtonPressed()
+    {
+        activeAppIndex++
+        appDescriptionCircleView!.setAppIndex(activeAppIndex)
+        updateNavigationButtons()
+    }
+    
+    func leftButtonPressed()
+    {
+        activeAppIndex--
+        appDescriptionCircleView!.setAppIndex(activeAppIndex)
+        updateNavigationButtons()
+    }
+    
+    func setAppIndex(index: Int)
+    {
+        activeAppIndex = index
+        appDescriptionCircleView!.setAppIndex(index)
+        updateNavigationButtons()
+    }
+    
+    func updateNavigationButtons()
+    {
+        appIconImageView?.image = UIImage(named: appsLogos[activeAppIndex])
+        
+        if activeAppIndex == 0 { leftArrowButton?.hidden = true }
+        else { leftArrowButton?.hidden = false }
+        
+        if activeAppIndex == appsTitles.count - 1 { rightArrowButton?.hidden = true }
+        else { rightArrowButton?.hidden = false }
     }
 }

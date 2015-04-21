@@ -34,7 +34,7 @@ class SpecialityCircleView: UIView
     
     func createTextLabel()
     {
-        let textLabelSize = self.frame.size.width / 2 / sqrt(2) - 10
+        let textLabelSize = self.frame.size.width / 2 / sqrt(2)
         textLabel = UILabel(frame: CGRectMake(self.frame.size.width / 2 - textLabelSize, self.frame.size.height / 2 - textLabelSize, textLabelSize * 2, textLabelSize * 2))
         textLabel?.numberOfLines = 0
         textLabel?.lineBreakMode = .ByWordWrapping
@@ -50,9 +50,9 @@ class SpecialityCircleView: UIView
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setInfo(title: String, specialityDescription: String)
+    func setSpecialityIndex(index: Int)
     {
-        titleLabel?.text = title
-        textLabel?.text = specialityDescription
+        titleLabel?.text = specialityTitles[index]
+        textLabel?.text = specialityDescriptions[index]
     }
 }
