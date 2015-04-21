@@ -92,7 +92,6 @@ class AppDescriptionView: UIView
         let width: CGFloat = appDescriptionCircleView!.frame.size.width
         let height: CGFloat = width * 1.775
         screenshotImageView = UIImageView(frame: CGRectMake(self.frame.size.width / 2 - width / 2, screenshotsButton!.frame.origin.y + 70, width, height))
-        screenshotImageView?.image = UIImage(named: "camusescreenshot")
         screenshotImageView?.alpha = 0.0
         
         self.addSubview(screenshotImageView!)
@@ -194,6 +193,7 @@ class AppDescriptionView: UIView
     func updateNavigationButtons()
     {
         appIconImageView?.image = UIImage(named: appsLogos[activeAppIndex])
+        screenshotImageView?.image = UIImage(named: appsScreenshots[activeAppIndex])
         
         if activeAppIndex == 0 { leftArrowButton?.hidden = true }
         else { leftArrowButton?.hidden = false }
