@@ -13,6 +13,7 @@ class AppDescriptionView: UIView
 {
     var appDescriptionCircleView: AppDescriptionCircleView?
     var closeButton: UIButton?
+    var screenshotCloseButton: UIButton?
     let appIconImageViewSize: CGFloat = 90
     let screenshotsButtonSize: CGFloat = 160
     var screenshotsButton: UIButton?
@@ -22,6 +23,7 @@ class AppDescriptionView: UIView
     var animationOffset: CGFloat?
     var leftArrowButton: UIButton?
     var rightArrowButton: UIButton?
+    var screenshotDownButton: UIButton?
     var radius: CGFloat?
     var activeAppIndex = 0
     
@@ -46,10 +48,13 @@ class AppDescriptionView: UIView
         appDescriptionCircleView?.layer.masksToBounds = true
         
         self.addSubview(appDescriptionCircleView!)
-        createCloseButton(radius!)
-        createAppIcon(radius!)
+        createCloseButton()
+        createAppIcon()
         createScreenshotsButton()
+        createScreenshotDownButton()
         createScreenshot()
+        createScreenshotCloseButton()
+        
         createNavigationButtons()
         
         animationOffset = self.screenshotsButton!.frame.origin.y - (self.frame.size.height - screenHeight) / 2 - 20
@@ -57,18 +62,28 @@ class AppDescriptionView: UIView
         self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }
     
-    func createCloseButton(radius: CGFloat)
+    func createCloseButton()
     {
         closeButton = CloseButton.getCloseButton()
-        closeButton?.frame = CGRectMake(appDescriptionCircleView!.center.x - radius / sqrt(2) - 20, appDescriptionCircleView!.center.y - radius / sqrt(2) - 20, 30, 30)
+        closeButton?.frame = CGRectMake(appDescriptionCircleView!.center.x - radius! / sqrt(2) - 20, appDescriptionCircleView!.center.y - radius! / sqrt(2) - 20, 30, 30)
         closeButton?.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         
         self.addSubview(closeButton!)
     }
     
-    func createAppIcon(radius: CGFloat)
+    func createScreenshotCloseButton()
     {
-        appIconImageView = UIImageView(frame: CGRectMake(appDescriptionCircleView!.center.x - appIconImageViewSize / 2, appDescriptionCircleView!.center.y - radius - 130, appIconImageViewSize, appIconImageViewSize))
+        screenshotCloseButton = CloseButton.getCloseButton()
+        screenshotCloseButton?.frame = CGRectMake(screenshotImageView!.frame.origin.x - 20, screenshotImageView!.frame.origin.y - 20, 30, 30)
+        screenshotCloseButton?.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
+        screenshotCloseButton?.alpha = 0.0
+        
+        self.addSubview(screenshotCloseButton!)
+    }
+    
+    func createAppIcon()
+    {
+        appIconImageView = UIImageView(frame: CGRectMake(appDescriptionCircleView!.center.x - appIconImageViewSize / 2, appDescriptionCircleView!.center.y - radius! - 130, appIconImageViewSize, appIconImageViewSize))
         appIconImageView?.layer.cornerRadius = appIconImageViewSize / 2
         appIconImageView?.layer.masksToBounds = true
         appIconImageView?.image = UIImage(named: "carambolecounterlogo")
@@ -85,6 +100,16 @@ class AppDescriptionView: UIView
         screenshotsButton?.addTarget(self, action: "screenshotsButtonPressed:", forControlEvents: .TouchUpInside)
         
         self.addSubview(screenshotsButton!)
+    }
+    
+    func createScreenshotDownButton()
+    {
+        screenshotDownButton = UIButton.buttonWithType(.System) as? UIButton
+        screenshotDownButton?.frame = CGRectMake(self.frame.size.width / 2 - 15, appDescriptionCircleView!.frame.origin.y + appDescriptionCircleView!.frame.size.height + 60, 30, 30)
+        screenshotDownButton?.addTarget(self, action: "screenshotsButtonPressed:", forControlEvents: .TouchUpInside)
+        screenshotDownButton?.setBackgroundImage(UIImage(named: "arrowdownwardicon"), forState: .Normal)
+        
+        self.addSubview(screenshotDownButton!)
     }
     
     func createScreenshot()
@@ -111,10 +136,14 @@ class AppDescriptionView: UIView
             }
             else
             {
-                self.screenshotsButton?.setTitle("Show App Info", forState: .Normal)
+                self.screenshotsButton?.setTitle("Back To App Info", forState: .Normal)
+                self.screenshotDownButton?.hidden = true
+                self.leftArrowButton?.hidden = true
+                self.rightArrowButton?.hidden = true
             }
             
             self.screenshotsButton!.center = CGPointMake(self.screenshotsButton!.center.x, self.screenshotsButton!.center.y - offsetY)
+            self.screenshotCloseButton!.center = CGPointMake(self.screenshotCloseButton!.center.x, self.screenshotCloseButton!.center.y - offsetY)
             self.appDescriptionCircleView!.center = CGPointMake(self.appDescriptionCircleView!.center.x, self.appDescriptionCircleView!.center.y - offsetY)
             self.closeButton!.center = CGPointMake(self.closeButton!.center.x, self.closeButton!.center.y - offsetY)
             self.appIconImageView!.center = CGPointMake(self.appIconImageView!.center.x, self.appIconImageView!.center.y - offsetY)
@@ -123,13 +152,20 @@ class AppDescriptionView: UIView
             if !self.showScreenshot
             {
                 self.screenshotImageView!.alpha = 1.0
+                self.screenshotCloseButton!.alpha = 1.0
             }
             else
             {
                 self.screenshotImageView!.alpha = 0.0
+                self.screenshotCloseButton!.alpha = 0.0
             }
         }) { (b: Bool) -> Void in
-            // ...
+            if !self.showScreenshot
+            {
+                self.leftArrowButton?.hidden = false
+                self.rightArrowButton?.hidden = false
+                self.screenshotDownButton?.hidden = false
+            }
         }
         
         showScreenshot = !showScreenshot
