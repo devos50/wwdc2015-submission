@@ -30,7 +30,7 @@
         <!--Start View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="StartViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="StartViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -97,7 +97,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8lN-8E-z4G" firstAttribute="top" secondItem="vE6-Ya-v54" secondAttribute="bottom" constant="12" id="2jU-dX-Tst"/>
-                            <constraint firstItem="PO6-0W-Hma" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="130" id="CV2-Ak-Azs"/>
+                            <constraint firstItem="PO6-0W-Hma" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="110" id="CV2-Ak-Azs"/>
                             <constraint firstItem="vE6-Ya-v54" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Fp0-N7-qs4"/>
                             <constraint firstItem="acQ-i4-ADT" firstAttribute="top" secondItem="PO6-0W-Hma" secondAttribute="bottom" constant="15" id="I7q-GV-3QE"/>
                             <constraint firstAttribute="trailing" secondItem="vE6-Ya-v54" secondAttribute="trailing" constant="16" id="Kxa-ba-NFk"/>
@@ -115,7 +115,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MSS-dB-H9p"/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="profileImageView" destination="PO6-0W-Hma" id="Bmd-H0-txy"/>
                         <outlet property="startButton" destination="o6P-sd-3rp" id="DG6-ur-BZP"/>
@@ -129,7 +128,7 @@
         <!--About View Controller-->
         <scene sceneID="NpU-zr-n8h">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="zaT-hG-q9k" customClass="AboutViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" extendedLayoutIncludesOpaqueBars="YES" id="zaT-hG-q9k" customClass="AboutViewController" customModule="WWDC2015Submission" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K9J-dy-sOC"/>
                         <viewControllerLayoutGuide type="bottom" id="VPa-vL-nt7"/>
@@ -234,13 +233,13 @@
                             <constraint firstItem="uCA-8B-tyl" firstAttribute="leading" secondItem="4Fb-ix-YzL" secondAttribute="leading" constant="16" id="EU0-IY-xWK"/>
                             <constraint firstItem="VPa-vL-nt7" firstAttribute="top" secondItem="W94-q2-B6F" secondAttribute="bottom" constant="94" id="FFM-mw-LSb"/>
                             <constraint firstItem="uCA-8B-tyl" firstAttribute="top" secondItem="8vd-td-9cE" secondAttribute="bottom" constant="-3" id="Ilf-qo-rbB"/>
-                            <constraint firstItem="vJT-a2-sOj" firstAttribute="top" secondItem="K9J-dy-sOC" secondAttribute="bottom" constant="123" id="Pb9-f7-OPA"/>
+                            <constraint firstItem="vJT-a2-sOj" firstAttribute="top" secondItem="K9J-dy-sOC" secondAttribute="bottom" constant="103" id="Pb9-f7-OPA"/>
                             <constraint firstItem="vjW-Kp-tqK" firstAttribute="top" secondItem="IHL-ja-xHA" secondAttribute="bottom" constant="25" id="Rr5-4u-bJO"/>
                             <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="eKQ-U3-bQi" secondAttribute="bottom" constant="28" id="VGd-KO-sgL"/>
                             <constraint firstItem="eKQ-U3-bQi" firstAttribute="leading" secondItem="IHL-ja-xHA" secondAttribute="trailing" constant="5" id="Xdn-vk-u07"/>
                             <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="kkg-C8-HcS" secondAttribute="bottom" constant="58" id="Y2I-YP-35g"/>
                             <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="vjW-Kp-tqK" secondAttribute="bottom" constant="9" id="bMv-le-mbg"/>
-                            <constraint firstItem="8vd-td-9cE" firstAttribute="top" secondItem="K9J-dy-sOC" secondAttribute="bottom" id="bgu-wL-1Ow"/>
+                            <constraint firstItem="8vd-td-9cE" firstAttribute="top" secondItem="K9J-dy-sOC" secondAttribute="bottom" constant="-20" id="bgu-wL-1Ow"/>
                             <constraint firstItem="kkg-C8-HcS" firstAttribute="leading" secondItem="4Fb-ix-YzL" secondAttribute="leading" constant="10" id="cf9-BL-V6M"/>
                             <constraint firstAttribute="trailing" secondItem="vjW-Kp-tqK" secondAttribute="trailing" constant="16" id="dxE-tP-Mku"/>
                             <constraint firstAttribute="trailing" secondItem="n2Y-7K-SC1" secondAttribute="trailing" id="ff4-rf-x5K"/>
@@ -255,7 +254,6 @@
                             <constraint firstItem="n2Y-7K-SC1" firstAttribute="leading" secondItem="4Fb-ix-YzL" secondAttribute="leading" id="zhj-8G-xaa"/>
                         </constraints>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="appsButton" destination="eKQ-U3-bQi" id="icw-ZK-H5x"/>
                         <outlet property="locationMapView" destination="n2Y-7K-SC1" id="jba-eX-SLN"/>
@@ -371,8 +369,8 @@
                             <constraint firstItem="sEI-Mg-7fX" firstAttribute="leading" secondItem="ybr-KF-RNW" secondAttribute="trailing" constant="22" id="mcZ-7B-iNd"/>
                             <constraint firstItem="oBJ-Hz-InR" firstAttribute="top" secondItem="r24-Iv-Wz3" secondAttribute="bottom" constant="38" id="nQH-c0-jnr"/>
                             <constraint firstAttribute="trailing" secondItem="AE9-EP-1fd" secondAttribute="trailing" id="qnS-cp-fyD"/>
-                            <constraint firstItem="9E9-hQ-1x0" firstAttribute="top" secondItem="mpX-h7-bse" secondAttribute="bottom" constant="123" id="uUB-fk-5zr"/>
-                            <constraint firstItem="AE9-EP-1fd" firstAttribute="top" secondItem="mpX-h7-bse" secondAttribute="bottom" id="w7f-iJ-Crs"/>
+                            <constraint firstItem="9E9-hQ-1x0" firstAttribute="top" secondItem="mpX-h7-bse" secondAttribute="bottom" constant="103" id="uUB-fk-5zr"/>
+                            <constraint firstItem="AE9-EP-1fd" firstAttribute="top" secondItem="mpX-h7-bse" secondAttribute="bottom" constant="-20" id="w7f-iJ-Crs"/>
                             <constraint firstItem="sSL-f6-Q8f" firstAttribute="leading" secondItem="vwg-Y7-Vxb" secondAttribute="leading" constant="16" id="yI3-Di-jUx"/>
                         </constraints>
                     </view>
@@ -481,8 +479,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="X9G-n5-jhY" firstAttribute="top" secondItem="h3C-Bv-WaZ" secondAttribute="bottom" constant="177" id="2VU-58-7DR"/>
-                            <constraint firstItem="mdu-V2-fWZ" firstAttribute="top" secondItem="h3C-Bv-WaZ" secondAttribute="bottom" constant="123" id="71Z-5Y-EHy"/>
+                            <constraint firstItem="X9G-n5-jhY" firstAttribute="top" secondItem="h3C-Bv-WaZ" secondAttribute="bottom" constant="157" id="2VU-58-7DR"/>
+                            <constraint firstItem="mdu-V2-fWZ" firstAttribute="top" secondItem="h3C-Bv-WaZ" secondAttribute="bottom" constant="103" id="71Z-5Y-EHy"/>
                             <constraint firstItem="qOb-ld-kCn" firstAttribute="top" secondItem="X9G-n5-jhY" secondAttribute="bottom" constant="32" id="8XB-Q8-ccL"/>
                             <constraint firstItem="qOb-ld-kCn" firstAttribute="leading" secondItem="o83-uZ-EUX" secondAttribute="leading" constant="16" id="A9A-Gn-zS7"/>
                             <constraint firstAttribute="trailing" secondItem="Zgr-j4-Sfj" secondAttribute="trailing" constant="16" id="COM-eC-F6h"/>
@@ -498,7 +496,7 @@
                             <constraint firstItem="xiG-Im-A4y" firstAttribute="top" secondItem="Zgr-j4-Sfj" secondAttribute="bottom" constant="20" id="hzX-Ev-v4p"/>
                             <constraint firstItem="mdu-V2-fWZ" firstAttribute="leading" secondItem="X9G-n5-jhY" secondAttribute="trailing" constant="8" id="jNu-hV-tkI"/>
                             <constraint firstItem="VtU-iZ-1pt" firstAttribute="leading" secondItem="o83-uZ-EUX" secondAttribute="leading" id="wZy-mi-jWX"/>
-                            <constraint firstItem="VtU-iZ-1pt" firstAttribute="top" secondItem="h3C-Bv-WaZ" secondAttribute="bottom" id="yfG-2Z-LaE"/>
+                            <constraint firstItem="VtU-iZ-1pt" firstAttribute="top" secondItem="h3C-Bv-WaZ" secondAttribute="bottom" constant="-20" id="yfG-2Z-LaE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -623,10 +621,10 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                             <constraint firstAttribute="trailing" secondItem="mM4-wo-G6Y" secondAttribute="trailing" id="6cx-Bj-OEF"/>
                             <constraint firstItem="ppc-Rv-ur9" firstAttribute="leading" secondItem="Jea-fv-iLu" secondAttribute="trailing" constant="3" id="8AX-hn-Sn1"/>
                             <constraint firstItem="egC-cm-NyE" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="2" id="8Ka-zn-BP3"/>
-                            <constraint firstItem="snI-py-EEA" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="123" id="BwV-Sm-x45"/>
+                            <constraint firstItem="snI-py-EEA" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="103" id="BwV-Sm-x45"/>
                             <constraint firstItem="Dia-sl-n8k" firstAttribute="leading" secondItem="dHu-gl-AaV" secondAttribute="leading" id="Eh0-rA-qKY"/>
                             <constraint firstItem="KxU-pf-ZJP" firstAttribute="leading" secondItem="dHu-gl-AaV" secondAttribute="leading" constant="16" id="MZ7-TD-64H"/>
-                            <constraint firstItem="mM4-wo-G6Y" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" id="Nm9-RT-koL"/>
+                            <constraint firstItem="mM4-wo-G6Y" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="-20" id="Nm9-RT-koL"/>
                             <constraint firstItem="Jea-fv-iLu" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="6" id="Oup-su-AeK"/>
                             <constraint firstItem="ppc-Rv-ur9" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="2" id="OzB-s3-wI0"/>
                             <constraint firstItem="gs6-ZN-dN7" firstAttribute="leading" secondItem="ppc-Rv-ur9" secondAttribute="trailing" constant="10" id="TxI-dA-KPa"/>
@@ -635,7 +633,7 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                             <constraint firstItem="snI-py-EEA" firstAttribute="leading" secondItem="KxU-pf-ZJP" secondAttribute="trailing" constant="8" id="fhS-Dn-rRc"/>
                             <constraint firstAttribute="trailing" secondItem="1uf-9f-ckH" secondAttribute="trailing" constant="10" id="gUM-p5-m9M"/>
                             <constraint firstItem="1uf-9f-ckH" firstAttribute="leading" secondItem="dHu-gl-AaV" secondAttribute="leading" constant="10" id="h3j-X3-ZpR"/>
-                            <constraint firstItem="KxU-pf-ZJP" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="177" id="jtB-Fh-FiS"/>
+                            <constraint firstItem="KxU-pf-ZJP" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="157" id="jtB-Fh-FiS"/>
                             <constraint firstItem="mM4-wo-G6Y" firstAttribute="leading" secondItem="dHu-gl-AaV" secondAttribute="leading" id="m9d-JP-pns"/>
                             <constraint firstAttribute="trailing" secondItem="Dia-sl-n8k" secondAttribute="trailing" id="mlI-tf-G5K"/>
                             <constraint firstItem="egC-cm-NyE" firstAttribute="leading" secondItem="gs6-ZN-dN7" secondAttribute="trailing" constant="10" id="nXE-BM-bEw"/>
@@ -654,9 +652,8 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
         <!--Navigation Controller-->
         <scene sceneID="690-te-DPH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oUf-S9-dAq" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oUf-S9-dAq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zrw-tE-VPo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
