@@ -90,7 +90,7 @@ class AppsGraphView: UIView
     
     func createNode(position: GraphViewPosition, backgroundImage: UIImage, withBorder: Bool, index: Int)
     {
-        let nodeButton = UIButton.buttonWithType(.System) as UIButton
+        let nodeButton = UIButton.buttonWithType(.System) as! UIButton
         
         var center = CGPointZero
         if position == .UpperLeft { center = CGPointMake(self.frame.size.width / 6, self.frame.size.height / 6) }

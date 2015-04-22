@@ -85,10 +85,10 @@ class PageViewController: UIViewController
     
     func shouldOpenPage(notification: NSNotification)
     {
-        let userInfo: Dictionary<String,String!> = notification.userInfo as Dictionary<String,String!>
+        let userInfo: Dictionary<String,String!> = notification.userInfo as! Dictionary<String,String!>
         let storyboardIdentifier = userInfo["page"]
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(storyboardIdentifier!) as PageViewController
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(storyboardIdentifier!)as! PageViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

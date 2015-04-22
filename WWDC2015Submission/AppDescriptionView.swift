@@ -178,7 +178,7 @@ class AppDescriptionView: UIView
             
             if self.showScreenshot
             {
-                self.screenshotsButton?.setTitle("Show Screenshot", forState: .Normal)
+                self.screenshotsButton?.setTitle("Show Screenshots", forState: .Normal)
                 offsetY = CGFloat(-1) * offsetY
             }
             else

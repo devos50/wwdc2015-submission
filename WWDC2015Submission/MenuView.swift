@@ -69,7 +69,7 @@ class MenuView: UIView
         let dx = [-pageButtonSize / 2, subViewRadius - pageButtonSize - pageButtonCirclePadding, -pageButtonSize / 2, -subViewRadius + pageButtonCirclePadding]
         let dy = [-subViewRadius + pageButtonCirclePadding, -pageButtonSize / 2, subViewRadius - pageButtonSize - pageButtonCirclePadding, -pageButtonSize / 2]
         
-        let pageButton = UIButton.buttonWithType(.System) as UIButton
+        let pageButton = UIButton.buttonWithType(.System) as! UIButton
         pageButton.frame = CGRectMake(menuSubView!.frame.size.width / 2 + dx[position.rawValue], menuSubView!.frame.size.height / 2 + dy[position.rawValue], pageButtonSize, pageButtonSize)
         pageButton.backgroundColor = UIColor.blackColor()
         pageButton.layer.cornerRadius = pageButtonSize / 2

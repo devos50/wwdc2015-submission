@@ -29,19 +29,19 @@ class CircleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         var buttonFrame = CGRectMake(fromViewController.view.frame.size.width / 2, fromViewController.view.frame.size.height / 2, 0, 0)
         if fromViewController is StartViewController
         {
-            buttonFrame = (fromViewController as StartViewController).startButton!.frame
+            buttonFrame = (fromViewController as! StartViewController).startButton!.frame
         }
         else if fromViewController is AboutViewController
         {
-            buttonFrame = (fromViewController as AboutViewController).appsButton!.frame
+            buttonFrame = (fromViewController as! AboutViewController).appsButton!.frame
         }
         else if fromViewController is AppsViewController
         {
-            buttonFrame = (fromViewController as AppsViewController).companyButton!.frame
+            buttonFrame = (fromViewController as! AppsViewController).companyButton!.frame
         }
         else if fromViewController is SpecialitiesViewController
         {
-            buttonFrame = (fromViewController as SpecialitiesViewController).interestsButton!.frame
+            buttonFrame = (fromViewController as! SpecialitiesViewController).interestsButton!.frame
         }
         
         containerView.addSubview(toViewController.view)

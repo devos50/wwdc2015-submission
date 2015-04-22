@@ -13,7 +13,7 @@ class CloseButton: UIButton
 {
     class func getCloseButton() -> CloseButton
     {
-        let closeButton = CloseButton.buttonWithType(.System) as CloseButton
+        let closeButton = CloseButton.buttonWithType(.System) as! CloseButton
         
         closeButton.backgroundColor = UIColor.blackColor()
         closeButton.titleLabel?.font = UIFont.systemFontOfSize(19)
