@@ -70,9 +70,12 @@ class AppDescriptionView: UIView
         swipeRight.direction = .Left
         let swipeUp = UISwipeGestureRecognizer(target: self, action: "upSwipeDetected")
         swipeUp.direction = .Up
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: "downSwipeDetected")
+        swipeDown.direction = .Down
         self.addGestureRecognizer(swipeRight)
         self.addGestureRecognizer(swipeLeft)
         self.addGestureRecognizer(swipeUp)
+        self.addGestureRecognizer(swipeDown)
         
         self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }
@@ -349,6 +352,12 @@ class AppDescriptionView: UIView
     func upSwipeDetected()
     {
         if showScreenshot { return }
+        screenshotsButtonPressed(screenshotsButton!)
+    }
+    
+    func downSwipeDetected()
+    {
+        if !showScreenshot { return }
         screenshotsButtonPressed(screenshotsButton!)
     }
     
