@@ -13,6 +13,7 @@ let appsTitles = ["Edutoets", "NewLinQ", "Carambole Counter", "TUDirect", "Camus
 let appsLogos = ["edutoetslogo", "newlinqlogo", "carambolecounterlogo", "tulogo", "camuselogo"]
 let appsDescriptions = ["Edutoets Admin makes it easy for teachers to create tests and make tests available for students. Students can make these tests using the Edutoets Afname app.", "NewLinQ is an app that allows you to connect and chat with other users. The app is invite-only and users can make a profile to show their specialities and tell other users about themselves.", "Keep track of your billiard score with the Carambole Counter app. Easily enter the amount of caramboles you scored during each round and generate a PDF file with an overview of the game when finished. The history of played games is saved.", "With the TUDirect app, students of the Delft University of Technology can easily get insight in their grades, courses and schedule. This app makes use of the TU Delft API that provides open data.", "Camuse is a company in Bergen op Zoom that rents camera material. Users can use the app to learn more and inquire about rented products."]
 let appsScreenshots = ["edutoetsscreenshot", "newlinqscreenshot", "carambolecounterscreenshot", "tudirectscreenshot", "camusescreenshot"]
+let appsWebsites = ["https://edutoets.nl", "http://newlinq.com", "http://carambolecounter.nl", "", "http://camuse.nl"]
 
 class AppsViewController: PageViewController
 {
@@ -68,7 +69,7 @@ class AppsViewController: PageViewController
     {
         appDescriptionView?.hidden = false
         UIView.animateWithDuration(0.4, animations: { () -> Void in
-            appDescriptionView?.transform = CGAffineTransformMakeScale(1, 1)
+            self.appDescriptionView!.transform = CGAffineTransformMakeScale(1, 1)
         }) { (b: Bool) -> Void in
                 // ...
         }

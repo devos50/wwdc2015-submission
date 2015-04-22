@@ -13,6 +13,8 @@ class AppDescriptionCircleView: UIView
 {
     var titleLabel: UILabel?
     var textLabel: UILabel?
+    var websiteButton: UIButton?
+    var activeAppIndex: Int = 0
     
     override init(frame: CGRect)
     {
@@ -20,6 +22,7 @@ class AppDescriptionCircleView: UIView
         
         createTitleLabel()
         createTextLabel()
+        createWebsiteButton()
     }
     
     func createTitleLabel()
@@ -45,10 +48,31 @@ class AppDescriptionCircleView: UIView
         self.addSubview(textLabel!)
     }
     
+    func createWebsiteButton()
+    {
+        let buttonSize = self.frame.size.width / 2 / sqrt(2)
+        websiteButton = UIButton.buttonWithType(.System) as? UIButton
+        websiteButton?.frame = CGRectMake(self.frame.size.width / 2 - buttonSize / 2, self.frame.size.height - 43, buttonSize, 25)
+        websiteButton?.setTitle("Visit Website", forState: .Normal)
+        websiteButton?.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        websiteButton?.titleLabel?.font = UIFont(name: "LucidaGrande", size: 13)
+        websiteButton?.addTarget(self, action: "websiteButtonPressed", forControlEvents: .TouchUpInside)
+        
+        self.addSubview(websiteButton!)
+    }
+    
     func setAppIndex(index: Int)
     {
+        activeAppIndex = index
         titleLabel?.text = appsTitles[index]
         textLabel?.text = appsDescriptions[index]
+        if appsWebsites[index] == "" { self.websiteButton!.hidden = true }
+        else { self.websiteButton?.hidden = false }
+    }
+    
+    func websiteButtonPressed()
+    {
+        UIApplication.sharedApplication().openURL(NSURL(string: appsWebsites[activeAppIndex])!)
     }
 
     required init(coder aDecoder: NSCoder)

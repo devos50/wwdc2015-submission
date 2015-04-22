@@ -125,7 +125,7 @@ class SpecialitiesViewController: PageViewController
     
     func addSpecialitiesButton(title: String, x: CGFloat, y: CGFloat, index: Int)
     {
-        let specialitiesButton = SpecialitiesButton.buttonWithType(.System) as! SpecialitiesButton
+        let specialitiesButton = SpecialitiesButton.buttonWithType(.System) as SpecialitiesButton
         specialitiesButton.frame = CGRectMake(x, y, 25, 25)
         specialitiesButton.setTitle("", forState: .Normal)
         specialitiesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -182,7 +182,7 @@ class SpecialitiesViewController: PageViewController
     {
         specialityView?.hidden = false
         UIView.animateWithDuration(0.4, animations: { () -> Void in
-            specialityView?.transform = CGAffineTransformMakeScale(1, 1)
+            self.specialityView!.transform = CGAffineTransformMakeScale(1, 1)
         }) { (b: Bool) -> Void in
                 // ...
         }

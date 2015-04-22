@@ -66,9 +66,9 @@ class PageViewController: UIViewController
         menuButton?.hidden = true
         menuView?.hidden = false
         UIView.animateWithDuration(0.4, animations: { () -> Void in
-            menuView?.transform = CGAffineTransformMakeScale(1, 1)
-            }) { (b: Bool) -> Void in
-                menuView?.fadePageButtons()
+            self.menuView!.transform = CGAffineTransformMakeScale(1, 1)
+        }) { (b: Bool) -> Void in
+            self.menuView!.fadePageButtons()
         }
     }
     
@@ -85,10 +85,10 @@ class PageViewController: UIViewController
     
     func shouldOpenPage(notification: NSNotification)
     {
-        let userInfo: Dictionary<String,String!> = notification.userInfo as! Dictionary<String,String!>
+        let userInfo: Dictionary<String,String!> = notification.userInfo as Dictionary<String,String!>
         let storyboardIdentifier = userInfo["page"]
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(storyboardIdentifier!) as! PageViewController
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(storyboardIdentifier!) as PageViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
