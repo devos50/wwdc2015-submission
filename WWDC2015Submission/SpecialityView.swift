@@ -42,6 +42,14 @@ class SpecialityView: UIView
         createCloseButton()
         createNavigationButtons()
         
+        // add swipe recognizers
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "leftSwipeDetected")
+        swipeRight.direction = .Right
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "rightSwipeDetected")
+        swipeRight.direction = .Left
+        self.addGestureRecognizer(swipeRight)
+        self.addGestureRecognizer(swipeLeft)
+        
         self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }
     
@@ -104,6 +112,22 @@ class SpecialityView: UIView
     
     func leftButtonPressed()
     {
+        activeSpecialityIndex--
+        specialityCircleView!.setSpecialityIndex(activeSpecialityIndex)
+        updateNavigationButtons()
+    }
+    
+    func leftSwipeDetected()
+    {
+        if activeSpecialityIndex == specialityTitles.count - 1 { return }
+        activeSpecialityIndex++
+        specialityCircleView!.setSpecialityIndex(activeSpecialityIndex)
+        updateNavigationButtons()
+    }
+    
+    func rightSwipeDetected()
+    {
+        if activeSpecialityIndex == 0 { return }
         activeSpecialityIndex--
         specialityCircleView!.setSpecialityIndex(activeSpecialityIndex)
         updateNavigationButtons()

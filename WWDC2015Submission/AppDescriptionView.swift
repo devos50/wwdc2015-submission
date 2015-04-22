@@ -59,6 +59,17 @@ class AppDescriptionView: UIView
         
         animationOffset = self.screenshotsButton!.frame.origin.y - (self.frame.size.height - screenHeight) / 2 - 20
         
+        // add swipe recognizers
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "leftSwipeDetected")
+        swipeRight.direction = .Right
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "rightSwipeDetected")
+        swipeRight.direction = .Left
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: "upSwipeDetected")
+        swipeUp.direction = .Up
+        self.addGestureRecognizer(swipeRight)
+        self.addGestureRecognizer(swipeLeft)
+        self.addGestureRecognizer(swipeUp)
+        
         self.transform = CGAffineTransformMakeScale(0.01, 0.01)
     }
     
@@ -219,6 +230,28 @@ class AppDescriptionView: UIView
         updateNavigationButtons()
     }
     
+    func leftSwipeDetected()
+    {
+        if showScreenshot || activeAppIndex == appsTitles.count - 1 { return }
+        activeAppIndex++
+        appDescriptionCircleView!.setAppIndex(activeAppIndex)
+        updateNavigationButtons()
+    }
+    
+    func rightSwipeDetected()
+    {
+        if showScreenshot || activeAppIndex == 0 { return }
+        activeAppIndex--
+        appDescriptionCircleView!.setAppIndex(activeAppIndex)
+        updateNavigationButtons()
+    }
+    
+    func upSwipeDetected()
+    {
+        if showScreenshot { return }
+        screenshotsButtonPressed(screenshotsButton!)
+    }
+    
     func setAppIndex(index: Int)
     {
         activeAppIndex = index
@@ -236,5 +269,11 @@ class AppDescriptionView: UIView
         
         if activeAppIndex == appsTitles.count - 1 { rightArrowButton?.hidden = true }
         else { rightArrowButton?.hidden = false }
+        
+        if showScreenshot
+        {
+            leftArrowButton?.hidden = true
+            rightArrowButton?.hidden = true
+        }
     }
 }
