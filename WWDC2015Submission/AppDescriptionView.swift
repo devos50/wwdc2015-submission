@@ -18,14 +18,17 @@ class AppDescriptionView: UIView
     let screenshotsButtonSize: CGFloat = 160
     var screenshotsButton: UIButton?
     var appIconImageView: UIImageView?
-    var screenshotImageView: UIImageView?
+    var screenshotImageViews = [UIImageView]()
     var showScreenshot = false
     var animationOffset: CGFloat?
     var leftArrowButton: UIButton?
     var rightArrowButton: UIButton?
+    var nextScreenshotButton: UIButton?
+    var prevScreenshotButton: UIButton?
     var screenshotDownButton: UIButton?
     var radius: CGFloat?
     var activeAppIndex = 0
+    var activeScreenshotIndex = 0
     
     override init(frame: CGRect)
     {
@@ -52,8 +55,9 @@ class AppDescriptionView: UIView
         createAppIcon()
         createScreenshotsButton()
         createScreenshotDownButton()
-        createScreenshot()
+        createScreenshots()
         createScreenshotCloseButton()
+        createScreenshotNextPrevButtons()
         
         createNavigationButtons()
         
@@ -85,7 +89,7 @@ class AppDescriptionView: UIView
     func createScreenshotCloseButton()
     {
         screenshotCloseButton = CloseButton.getCloseButton()
-        screenshotCloseButton?.frame = CGRectMake(screenshotImageView!.frame.origin.x - 20, screenshotImageView!.frame.origin.y - 20, 30, 30)
+        screenshotCloseButton?.frame = CGRectMake(screenshotImageViews[0].frame.origin.x - 20, screenshotImageViews[0].frame.origin.y - 20, 30, 30)
         screenshotCloseButton?.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         screenshotCloseButton?.alpha = 0.0
         
@@ -104,7 +108,7 @@ class AppDescriptionView: UIView
     func createScreenshotsButton()
     {
         screenshotsButton = UIButton.buttonWithType(.System) as? UIButton
-        screenshotsButton?.setTitle("Show Screenshot", forState: .Normal)
+        screenshotsButton?.setTitle("Show Screenshots", forState: .Normal)
         screenshotsButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         screenshotsButton?.titleLabel!.font = UIFont.boldSystemFontOfSize(17)
         screenshotsButton?.frame = CGRectMake(self.frame.size.width / 2 - screenshotsButtonSize / 2, appDescriptionCircleView!.frame.origin.y + appDescriptionCircleView!.frame.size.height + 30, screenshotsButtonSize, 30)
@@ -123,19 +127,51 @@ class AppDescriptionView: UIView
         self.addSubview(screenshotDownButton!)
     }
     
-    func createScreenshot()
+    func createScreenshotNextPrevButtons()
     {
-        let width: CGFloat = appDescriptionCircleView!.frame.size.width
-        let height: CGFloat = width * 1.775
-        screenshotImageView = UIImageView(frame: CGRectMake(self.frame.size.width / 2 - width / 2, screenshotsButton!.frame.origin.y + 70, width, height))
-        screenshotImageView?.alpha = 0.0
+        nextScreenshotButton = UIButton.buttonWithType(.System) as? UIButton
+        nextScreenshotButton?.frame = CGRectMake(screenshotImageViews[0].frame.origin.x + screenshotImageViews[0].frame.size.width + 10, screenshotsButton!.frame.origin.y + 70 + screenshotImageViews[0].frame.size.height / 2, 32, 32)
+        nextScreenshotButton?.setBackgroundImage(UIImage(named: "rightbutton"), forState: .Normal)
+        nextScreenshotButton?.addTarget(self, action: "nextScreenshotButtonPressed", forControlEvents: .TouchUpInside)
+        nextScreenshotButton?.alpha = 0.0
+        self.addSubview(nextScreenshotButton!)
         
-        self.addSubview(screenshotImageView!)
+        prevScreenshotButton = UIButton.buttonWithType(.System) as? UIButton
+        prevScreenshotButton?.frame = CGRectMake(screenshotImageViews[0].frame.origin.x - 32 - 10, screenshotsButton!.frame.origin.y + 70 + screenshotImageViews[0].frame.size.height / 2, 32, 32)
+        prevScreenshotButton?.setBackgroundImage(UIImage(named: "leftbutton"), forState: .Normal)
+        prevScreenshotButton?.addTarget(self, action: "prevScreenshotButtonPressed", forControlEvents: .TouchUpInside)
+        nextScreenshotButton?.alpha = 0.0
+        self.addSubview(prevScreenshotButton!)
+    }
+    
+    func createScreenshots()
+    {
+        let width: CGFloat = appDescriptionCircleView!.frame.size.width - 30
+        let height: CGFloat = width * 1.775
+        
+        var offsetX: CGFloat = 0
+        
+        // create image views for all screenshots necessary
+        for i in 0...2
+        {
+            let screenshotImageView = UIImageView(frame: CGRectMake(self.frame.size.width / 2 - width / 2 + offsetX, screenshotsButton!.frame.origin.y + 70, width, height))
+            screenshotImageView.alpha = 0.0
+            screenshotImageViews.append(screenshotImageView)
+            offsetX += CGFloat(width + 100)
+            
+            self.addSubview(screenshotImageView)
+        }
     }
     
     func screenshotsButtonPressed(button: UIButton)
     {
-        UIView.animateWithDuration(0.8, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        doScreenshotTranslateAnimation(true)
+        showScreenshot = !showScreenshot
+    }
+    
+    func doScreenshotTranslateAnimation(animated: Bool)
+    {
+        UIView.animateWithDuration(animated ? 0.8 : 0.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             let screenHeight = UIScreen.mainScreen().bounds.size.height
             
             var offsetY = self.animationOffset!
@@ -158,17 +194,34 @@ class AppDescriptionView: UIView
             self.appDescriptionCircleView!.center = CGPointMake(self.appDescriptionCircleView!.center.x, self.appDescriptionCircleView!.center.y - offsetY)
             self.closeButton!.center = CGPointMake(self.closeButton!.center.x, self.closeButton!.center.y - offsetY)
             self.appIconImageView!.center = CGPointMake(self.appIconImageView!.center.x, self.appIconImageView!.center.y - offsetY)
-            self.screenshotImageView!.center = CGPointMake(self.screenshotImageView!.center.x, self.screenshotImageView!.center.y - offsetY)
+            self.nextScreenshotButton!.center = CGPointMake(self.nextScreenshotButton!.center.x, self.nextScreenshotButton!.center.y - offsetY)
+            self.prevScreenshotButton!.center = CGPointMake(self.prevScreenshotButton!.center.x, self.prevScreenshotButton!.center.y - offsetY)
+            
+            // y-translate all screenshots (alpha 0.0 -> 1.0)
+            for i in 0...self.screenshotImageViews.count - 1
+            {
+                self.screenshotImageViews[i].center = CGPointMake(self.screenshotImageViews[i].center.x, self.screenshotImageViews[i].center.y - offsetY)
+            }
             
             if !self.showScreenshot
             {
-                self.screenshotImageView!.alpha = 1.0
+                for i in 0...self.screenshotImageViews.count - 1
+                {
+                    self.screenshotImageViews[i].alpha = 1.0
+                }
                 self.screenshotCloseButton!.alpha = 1.0
+                self.nextScreenshotButton!.alpha = 1.0
+                self.prevScreenshotButton!.alpha = 1.0
             }
             else
             {
-                self.screenshotImageView!.alpha = 0.0
+                for i in 0...self.screenshotImageViews.count - 1
+                {
+                    self.screenshotImageViews[i].alpha = 0.0
+                }
                 self.screenshotCloseButton!.alpha = 0.0
+                self.nextScreenshotButton!.alpha = 0.0
+                self.prevScreenshotButton!.alpha = 0.0
             }
         }) { (b: Bool) -> Void in
             if !self.showScreenshot
@@ -178,8 +231,6 @@ class AppDescriptionView: UIView
                 self.screenshotDownButton?.hidden = false
             }
         }
-        
-        showScreenshot = !showScreenshot
     }
     
     func createNavigationButtons()
@@ -208,12 +259,47 @@ class AppDescriptionView: UIView
     
     func closeButtonPressed(button: UIButton)
     {
+        
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.transform = CGAffineTransformMakeScale(0.01, 0.01)
         }) { (b: Bool) -> Void in
             self.hidden = true
-            NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.AppDescriptionCloseAnimationFinished", object: nil)
+        
+            if self.showScreenshot
+            {
+                self.doScreenshotTranslateAnimation(false)
+                self.showScreenshot = !self.showScreenshot
+            }
+        NSNotificationCenter.defaultCenter().postNotificationName("com.codeup.WWDC2015Submission.AppDescriptionCloseAnimationFinished", object: nil)
         }
+    }
+    
+    func nextScreenshotButtonPressed()
+    {
+        activeScreenshotIndex++
+        updateScreenshotNavigationButtons()
+        UIView.animateWithDuration(0.4, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            for i in 0...self.screenshotImageViews.count - 1
+            {
+                self.screenshotImageViews[i].transform = CGAffineTransformMakeTranslation(-self.screenshotImageViews[i].frame.size.width * CGFloat(self.activeScreenshotIndex) - 100 * CGFloat(self.activeScreenshotIndex), 0)
+            }
+            
+        }, completion: nil)
+    }
+    
+    func prevScreenshotButtonPressed()
+    {
+        activeScreenshotIndex--
+        updateScreenshotNavigationButtons()
+        UIView.animateWithDuration(0.4, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            
+            for i in 0...self.screenshotImageViews.count - 1
+            {
+                self.screenshotImageViews[i].transform = CGAffineTransformMakeTranslation(-self.screenshotImageViews[i].frame.size.width * CGFloat(self.activeScreenshotIndex) - 100 * CGFloat(self.activeScreenshotIndex), 0)
+            }
+            
+        }, completion: nil)
     }
     
     func rightButtonPressed()
@@ -232,18 +318,32 @@ class AppDescriptionView: UIView
     
     func leftSwipeDetected()
     {
-        if showScreenshot || activeAppIndex == appsTitles.count - 1 { return }
-        activeAppIndex++
-        appDescriptionCircleView!.setAppIndex(activeAppIndex)
-        updateNavigationButtons()
+        if !showScreenshot
+        {
+            if activeAppIndex == appsTitles.count - 1 { return }
+            activeAppIndex++
+            appDescriptionCircleView!.setAppIndex(activeAppIndex)
+            updateNavigationButtons()
+        }
+        else
+        {
+            if activeScreenshotIndex != screenshotImageViews.count - 1 { nextScreenshotButtonPressed() }
+        }
     }
     
     func rightSwipeDetected()
     {
-        if showScreenshot || activeAppIndex == 0 { return }
-        activeAppIndex--
-        appDescriptionCircleView!.setAppIndex(activeAppIndex)
-        updateNavigationButtons()
+        if !showScreenshot
+        {
+            if activeAppIndex == 0 { return }
+            activeAppIndex--
+            appDescriptionCircleView!.setAppIndex(activeAppIndex)
+            updateNavigationButtons()
+        }
+        else
+        {
+            if activeScreenshotIndex != 0 { prevScreenshotButtonPressed() }
+        }
     }
     
     func upSwipeDetected()
@@ -254,15 +354,33 @@ class AppDescriptionView: UIView
     
     func setAppIndex(index: Int)
     {
+        goBackToFirstScreenshot()
+        updateScreenshotNavigationButtons()
+        
         activeAppIndex = index
         appDescriptionCircleView!.setAppIndex(index)
+        updateNavigationButtons()
+    }
+    
+    func goBackToFirstScreenshot()
+    {
+        for i in 0...screenshotImageViews.count - 1
+        {
+            screenshotImageViews[i].transform = CGAffineTransformMakeTranslation(0, 0)
+        }
+        activeScreenshotIndex = 0
         updateNavigationButtons()
     }
     
     func updateNavigationButtons()
     {
         appIconImageView?.image = UIImage(named: appsLogos[activeAppIndex])
-        screenshotImageView?.image = UIImage(named: appsScreenshots[activeAppIndex])
+        
+        // update the screenshots
+        for i in 0...screenshotImageViews.count - 1
+        {
+            screenshotImageViews[i].image = UIImage(named: appsScreenshots[activeAppIndex][i])
+        }
         
         if activeAppIndex == 0 { leftArrowButton?.hidden = true }
         else { leftArrowButton?.hidden = false }
@@ -275,5 +393,14 @@ class AppDescriptionView: UIView
             leftArrowButton?.hidden = true
             rightArrowButton?.hidden = true
         }
+    }
+    
+    func updateScreenshotNavigationButtons()
+    {
+        if activeScreenshotIndex == 0 { prevScreenshotButton?.hidden = true }
+        else { prevScreenshotButton?.hidden = false }
+        
+        if activeScreenshotIndex == screenshotImageViews.count - 1 { nextScreenshotButton?.hidden = true }
+        else { nextScreenshotButton?.hidden = false }
     }
 }

@@ -411,6 +411,7 @@
                                     <constraint firstAttribute="width" constant="100" id="fMK-Oe-WDg"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="companyicon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
