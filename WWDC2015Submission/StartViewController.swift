@@ -12,6 +12,7 @@ class StartViewController: UIViewController
 {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var startButton: StartButton!
+    @IBOutlet weak var differenceConstraint: NSLayoutConstraint!
     
     override func viewDidLoad()
     {
@@ -23,6 +24,8 @@ class StartViewController: UIViewController
         
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.layer.masksToBounds = true
+        
+        if UIScreen.mainScreen().bounds.size.width == 414.0 { differenceConstraint.constant = 6.0 }
     }
     
     func animationFinished(notification: NSNotification)
@@ -40,7 +43,5 @@ class StartViewController: UIViewController
     {
         startButton.startButtonAnimation(profileImageView.center)
     }
-
-
 }
 

@@ -232,6 +232,7 @@ class AppDescriptionView: UIView
                 self.leftArrowButton?.hidden = false
                 self.rightArrowButton?.hidden = false
                 self.screenshotDownButton?.hidden = false
+                self.updateNavigationButtons()
             }
         }
     }
@@ -308,6 +309,7 @@ class AppDescriptionView: UIView
     func rightButtonPressed()
     {
         activeAppIndex++
+        goBackToFirstScreenshot()
         appDescriptionCircleView!.setAppIndex(activeAppIndex)
         updateNavigationButtons()
     }
@@ -315,6 +317,7 @@ class AppDescriptionView: UIView
     func leftButtonPressed()
     {
         activeAppIndex--
+        goBackToFirstScreenshot()
         appDescriptionCircleView!.setAppIndex(activeAppIndex)
         updateNavigationButtons()
     }
@@ -324,6 +327,7 @@ class AppDescriptionView: UIView
         if !showScreenshot
         {
             if activeAppIndex == appsTitles.count - 1 { return }
+            goBackToFirstScreenshot()
             activeAppIndex++
             appDescriptionCircleView!.setAppIndex(activeAppIndex)
             updateNavigationButtons()
@@ -339,6 +343,7 @@ class AppDescriptionView: UIView
         if !showScreenshot
         {
             if activeAppIndex == 0 { return }
+            goBackToFirstScreenshot()
             activeAppIndex--
             appDescriptionCircleView!.setAppIndex(activeAppIndex)
             updateNavigationButtons()
@@ -379,6 +384,7 @@ class AppDescriptionView: UIView
         }
         activeScreenshotIndex = 0
         updateNavigationButtons()
+        updateScreenshotNavigationButtons()
     }
     
     func updateNavigationButtons()

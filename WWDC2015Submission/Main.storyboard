@@ -77,7 +77,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button below to start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE6-Ya-v54">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button below to start." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE6-Ya-v54">
                                 <rect key="frame" x="16" y="277" width="568" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="msH-HA-9IP"/>
@@ -116,6 +116,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MSS-dB-H9p"/>
                     <connections>
+                        <outlet property="differenceConstraint" destination="U77-LG-64q" id="UB4-ac-ZBS"/>
                         <outlet property="profileImageView" destination="PO6-0W-Hma" id="Bmd-H0-txy"/>
                         <outlet property="startButton" destination="o6P-sd-3rp" id="DG6-ur-BZP"/>
                         <segue destination="zaT-hG-q9k" kind="show" identifier="AboutSegue" id="RIG-Ce-zOB"/>
@@ -159,9 +160,9 @@
                                 </constraints>
                             </mapView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkg-C8-HcS">
-                                <rect key="frame" x="10" y="226" width="580" height="191"/>
+                                <rect key="frame" x="10" y="226" width="580" height="154"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Hi everyone! I'm Martijn de Vos, 22 years old and I'm attending a Master Computer Science at the Delft University of Technology. My bachelor was also in Computer Science. I live in the Netherlands. I'm in particular interested in iOS development and I've been doing this for about five years now. About a year ago, I started my own company named CodeUp. This app shows some of my work experience, interests and skills. You can navigate through the app with the menu button in the upper left corner.</string>
+                                <string key="text">Hi everyone! I'm Martijn de Vos, 22 years old and I'm attending a Master's degree program Computer Science at the Delft University of Technology. My bachelor was also in Computer Science. I live in the Netherlands. I'm in particular interested in iOS development and I've been developing iOS apps for about five years now. About a year ago, I started my own company named CodeUp. This app shows some of my work experience, interests and skills. You can navigate through the app with the menu button in the upper left corner.</string>
                                 <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -237,7 +238,7 @@
                             <constraint firstItem="vjW-Kp-tqK" firstAttribute="top" secondItem="IHL-ja-xHA" secondAttribute="bottom" constant="25" id="Rr5-4u-bJO"/>
                             <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="eKQ-U3-bQi" secondAttribute="bottom" constant="28" id="VGd-KO-sgL"/>
                             <constraint firstItem="eKQ-U3-bQi" firstAttribute="leading" secondItem="IHL-ja-xHA" secondAttribute="trailing" constant="5" id="Xdn-vk-u07"/>
-                            <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="kkg-C8-HcS" secondAttribute="bottom" constant="58" id="Y2I-YP-35g"/>
+                            <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="kkg-C8-HcS" secondAttribute="bottom" constant="95" id="Y2I-YP-35g"/>
                             <constraint firstItem="n2Y-7K-SC1" firstAttribute="top" secondItem="vjW-Kp-tqK" secondAttribute="bottom" constant="9" id="bMv-le-mbg"/>
                             <constraint firstItem="8vd-td-9cE" firstAttribute="top" secondItem="K9J-dy-sOC" secondAttribute="bottom" constant="-20" id="bgu-wL-1Ow"/>
                             <constraint firstItem="kkg-C8-HcS" firstAttribute="leading" secondItem="4Fb-ix-YzL" secondAttribute="leading" constant="10" id="cf9-BL-V6M"/>
@@ -255,6 +256,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutTextView" destination="kkg-C8-HcS" id="ROB-vj-ldW"/>
                         <outlet property="appsButton" destination="eKQ-U3-bQi" id="icw-ZK-H5x"/>
                         <outlet property="locationMapView" destination="n2Y-7K-SC1" id="jba-eX-SLN"/>
                         <outlet property="photoRotatingButton" destination="vJT-a2-sOj" id="o7p-zs-ihU"/>
@@ -553,14 +555,14 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uf-9f-ckH">
                                 <rect key="frame" x="10" y="231" width="580" height="191"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">My main interests regarding software are developing apps for the mobile platform. I like to see what people can do with apps and I like the fact that they can use it at any time and any place. In particular, I like to work on creating communication facilities for users such as chat clients.
+                                <string key="text">My main interests regarding software are developing apps for the mobile platform. I like to see what people can do with apps and I like the fact that they can use the apps at any time and any place. In particular, I like to work on creating communication facilities for users such as chat clients or other messaging systems.
 
-When I'm not developing, I'm probably using other apps, playing games or watching movies. A big hobby of mine is snowboarding. I go nearly every year to Austria on holiday.</string>
+When I'm not developing, I'm probably using other apps, playing games or watching movies. My big hobby is snowboarding. I go nearly every year to Austria on holiday.</string>
                                 <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to know more?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-fv-iLu">
-                                <rect key="frame" x="16" y="428" width="143" height="21"/>
+                                <rect key="frame" x="16" y="434" width="143" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="dhj-N2-fCv"/>
                                     <constraint firstAttribute="height" constant="21" id="y4T-IZ-FJ8"/>
@@ -570,7 +572,7 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppc-Rv-ur9">
-                                <rect key="frame" x="162" y="424" width="30" height="30"/>
+                                <rect key="frame" x="162" y="430" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9tG-yX-Dyz"/>
                                     <constraint firstAttribute="width" constant="30" id="A0F-dF-Tbm"/>
@@ -583,7 +585,7 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-ZN-dN7">
-                                <rect key="frame" x="202" y="424" width="30" height="30"/>
+                                <rect key="frame" x="202" y="430" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="q6B-k4-8dC"/>
                                     <constraint firstAttribute="width" constant="30" id="tPB-aq-gFd"/>
@@ -596,7 +598,7 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egC-cm-NyE">
-                                <rect key="frame" x="242" y="424" width="30" height="30"/>
+                                <rect key="frame" x="242" y="430" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="xBx-e9-pVC"/>
                                     <constraint firstAttribute="height" constant="30" id="yYE-D0-LJu"/>
@@ -618,16 +620,16 @@ When I'm not developing, I'm probably using other apps, playing games or watchin
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1uf-9f-ckH" firstAttribute="top" secondItem="snI-py-EEA" secondAttribute="bottom" constant="8" id="1NI-D5-2Pb"/>
-                            <constraint firstItem="gs6-ZN-dN7" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="2" id="4Tk-ai-TiQ"/>
+                            <constraint firstItem="gs6-ZN-dN7" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="8" id="4Tk-ai-TiQ"/>
                             <constraint firstAttribute="trailing" secondItem="mM4-wo-G6Y" secondAttribute="trailing" id="6cx-Bj-OEF"/>
                             <constraint firstItem="ppc-Rv-ur9" firstAttribute="leading" secondItem="Jea-fv-iLu" secondAttribute="trailing" constant="3" id="8AX-hn-Sn1"/>
-                            <constraint firstItem="egC-cm-NyE" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="2" id="8Ka-zn-BP3"/>
+                            <constraint firstItem="egC-cm-NyE" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="8" id="8Ka-zn-BP3"/>
                             <constraint firstItem="snI-py-EEA" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="103" id="BwV-Sm-x45"/>
                             <constraint firstItem="Dia-sl-n8k" firstAttribute="leading" secondItem="dHu-gl-AaV" secondAttribute="leading" id="Eh0-rA-qKY"/>
                             <constraint firstItem="KxU-pf-ZJP" firstAttribute="leading" secondItem="dHu-gl-AaV" secondAttribute="leading" constant="16" id="MZ7-TD-64H"/>
                             <constraint firstItem="mM4-wo-G6Y" firstAttribute="top" secondItem="QzL-wC-pSM" secondAttribute="bottom" constant="-20" id="Nm9-RT-koL"/>
-                            <constraint firstItem="Jea-fv-iLu" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="6" id="Oup-su-AeK"/>
-                            <constraint firstItem="ppc-Rv-ur9" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="2" id="OzB-s3-wI0"/>
+                            <constraint firstItem="Jea-fv-iLu" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="12" id="Oup-su-AeK"/>
+                            <constraint firstItem="ppc-Rv-ur9" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="8" id="OzB-s3-wI0"/>
                             <constraint firstItem="gs6-ZN-dN7" firstAttribute="leading" secondItem="ppc-Rv-ur9" secondAttribute="trailing" constant="10" id="TxI-dA-KPa"/>
                             <constraint firstItem="QaZ-0K-uqN" firstAttribute="top" secondItem="1uf-9f-ckH" secondAttribute="bottom" constant="178" id="WiV-ht-ZKV"/>
                             <constraint firstAttribute="trailing" secondItem="snI-py-EEA" secondAttribute="trailing" constant="16" id="Yat-oK-vlu"/>

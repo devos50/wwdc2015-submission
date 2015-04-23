@@ -56,7 +56,7 @@ class SpecialityView: UIView
     func createCloseButton()
     {
         closeButton = CloseButton.getCloseButton()
-        closeButton?.frame = CGRectMake(specialityCircleView!.center.x - radius! / sqrt(2) - 20, specialityCircleView!.center.y - radius! / sqrt(2) - 20, 30, 30)
+        closeButton?.frame = CGRectMake(specialityCircleView!.center.x - radius! / sqrt(2) - 24, specialityCircleView!.center.y - radius! / sqrt(2) - 24, 30, 30)
         closeButton?.addTarget(self, action: "closeButtonPressed:", forControlEvents: .TouchUpInside)
         
         self.addSubview(closeButton!)

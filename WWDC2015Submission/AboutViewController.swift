@@ -14,6 +14,7 @@ class AboutViewController: PageViewController
     @IBOutlet weak var photoRotatingButton: RotatingButton!
     @IBOutlet weak var appsButton: UIButton!
     @IBOutlet weak var locationMapView: MKMapView!
+    @IBOutlet weak var aboutTextView: UITextView!
     
     override func viewDidLoad()
     {
@@ -24,6 +25,8 @@ class AboutViewController: PageViewController
         
         appsButton.layer.cornerRadius = appsButton.frame.size.width / 2
         appsButton.layer.masksToBounds = true
+        
+        aboutTextView.scrollRangeToVisible(NSMakeRange(0, 1))
         
         initializeMapView()
     }

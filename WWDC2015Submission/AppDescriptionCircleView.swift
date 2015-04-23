@@ -27,10 +27,10 @@ class AppDescriptionCircleView: UIView
     
     func createTitleLabel()
     {
-        titleLabel = UILabel(frame: CGRectMake(0, 30, self.frame.size.width, 20))
+        titleLabel = UILabel(frame: CGRectMake(0, 22, self.frame.size.width, 20))
         titleLabel?.text = "Carambole Counter"
         titleLabel?.textAlignment = .Center
-        titleLabel?.font = UIFont.boldSystemFontOfSize(17)
+        titleLabel?.font = UIFont(name: "Novecentowide-DemiBold", size: 16)
         
         self.addSubview(titleLabel!)
     }
@@ -42,7 +42,7 @@ class AppDescriptionCircleView: UIView
         textLabel?.numberOfLines = 0
         textLabel?.lineBreakMode = .ByWordWrapping
         textLabel?.textAlignment = .Center
-        textLabel?.font = UIFont.systemFontOfSize(15)
+        textLabel?.font = UIFont.systemFontOfSize(13)
         textLabel?.text = "With the Carambole Counter, you can easily keep track of your billiard score."
         
         self.addSubview(textLabel!)
